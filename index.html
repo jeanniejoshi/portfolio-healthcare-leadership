@@ -137,6 +137,26 @@
   .future-layer .fl-icon { width: 22px; height: 22px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: .6rem; font-weight: 600; flex-shrink: 0; }
   .future-layer .fl-label { flex: 1; }
   .future-layer .fl-sub { font-size: .6rem; color: var(--sub); display: block; margin-top: .1rem; }
+
+  /* Spectrum visualizations */
+  .spectrum-wrapper { margin: 1.5rem 0; }
+  .spectrum-attr { font-size: .62rem; color: var(--sub); font-style: italic; margin-bottom: .75rem; }
+  .spectrum-bar { display: flex; align-items: stretch; border: 1px solid var(--rule); overflow: hidden; margin-bottom: .35rem; }
+  .spectrum-segment { flex: 1; padding: .6rem .5rem; text-align: center; border-right: 1px solid var(--rule); display: flex; flex-direction: column; justify-content: center; gap: .2rem; }
+  .spectrum-segment:last-child { border-right: none; }
+  .spectrum-segment-label { font-size: .62rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .spectrum-segment-ratio { font-size: .56rem; color: var(--sub); }
+  .spectrum-segment .fill-bar { height: 6px; border-radius: 1px; margin-top: .25rem; display: flex; overflow: hidden; }
+  .fill-branded { background: var(--accent); }
+  .fill-unbranded { background: var(--tint2); }
+  .spectrum-axis { display: flex; justify-content: space-between; padding: 0 .25rem; }
+  .spectrum-axis span { font-size: .56rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sub); }
+  .flex-spectrum { display: flex; align-items: center; gap: .5rem; margin: 1rem 0; padding: .75rem 1rem; border: 1px solid var(--rule); background: var(--white); }
+  .flex-spectrum-label { font-size: .62rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sub); white-space: nowrap; }
+  .flex-spectrum-track { flex: 1; height: 8px; background: var(--tint2); border-radius: 4px; position: relative; }
+  .flex-spectrum-dots { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 2px; }
+  .flex-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); }
+  .flex-dot.filled { background: var(--accent); }
   .highlight-box p { color: rgba(255,255,255,.85); font-size: .9rem; line-height: 1.85; }
   .highlight-box strong { color: #fff; }
 
@@ -288,6 +308,47 @@
         <circle cx="540" cy="280" r="6" fill="var(--accent)" opacity="0.5"/>
         <text x="540" y="300" text-anchor="middle" font-family="var(--sans)" font-size="10" fill="var(--mid)">Agency of Record</text>
         <text x="540" y="312" text-anchor="middle" font-family="var(--sans)" font-size="10" fill="var(--mid)">(Corporate Brand)</text>
+      </svg>
+    </div>
+
+    <!-- TEAM STRUCTURE -->
+    <div style="margin:2.5rem 0 1rem;text-align:center;">
+      <div style="font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;">Team Structure</div>
+      <svg viewBox="0 0 740 440" style="max-width:680px;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Director box -->
+        <rect x="170" y="0" width="400" height="120" rx="3" fill="var(--accent)" opacity="0.08" stroke="var(--accent)" stroke-width="1"/>
+        <text x="370" y="22" text-anchor="middle" font-family="var(--sans)" font-size="11" font-weight="600" fill="var(--accent)">Director of Corporate Marketing</text>
+        <text x="370" y="37" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--mid)">Corporate Affairs</text>
+        <line x1="195" y1="48" x2="545" y2="48" stroke="var(--rule)" stroke-width=".5"/>
+        <text x="190" y="64" font-family="var(--sans)" font-size="8" fill="var(--mid)">Marcomm strategy and corporate campaign architecture</text>
+        <text x="190" y="78" font-family="var(--sans)" font-size="8" fill="var(--mid)">Enterprise partnerships and reputation management</text>
+        <text x="190" y="92" font-family="var(--sans)" font-size="8" fill="var(--mid)">Brand storytelling — patient and employee narratives</text>
+        <text x="190" y="106" font-family="var(--sans)" font-size="8" fill="var(--mid)">Global visibility — town halls and cultural programming</text>
+
+        <!-- Connector lines -->
+        <line x1="370" y1="120" x2="370" y2="155" stroke="var(--rule)" stroke-width="1.5"/>
+        <line x1="185" y1="155" x2="555" y2="155" stroke="var(--rule)" stroke-width="1.5"/>
+        <line x1="185" y1="155" x2="185" y2="175" stroke="var(--rule)" stroke-width="1.5"/>
+        <line x1="555" y1="155" x2="555" y2="175" stroke="var(--rule)" stroke-width="1.5"/>
+
+        <!-- Associate Director box -->
+        <rect x="30" y="175" width="310" height="120" rx="3" fill="var(--tint)" stroke="var(--rule)" stroke-width="1"/>
+        <text x="185" y="197" text-anchor="middle" font-family="var(--sans)" font-size="10" font-weight="600" fill="var(--ink)">Associate Director</text>
+        <text x="185" y="211" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--mid)">Corporate Marketing</text>
+        <line x1="50" y1="222" x2="320" y2="222" stroke="var(--rule)" stroke-width=".5"/>
+        <text x="50" y="240" font-family="var(--sans)" font-size="8" fill="var(--mid)">Agency of record account management</text>
+        <text x="50" y="254" font-family="var(--sans)" font-size="8" fill="var(--mid)">Brand governance — all internal and external assets</text>
+        <text x="50" y="268" font-family="var(--sans)" font-size="8" fill="var(--mid)">Unbranded campaign workflow oversight</text>
+        <text x="50" y="282" font-family="var(--sans)" font-size="8" fill="var(--mid)">High-volume corporate brand request pipeline</text>
+
+        <!-- Senior Manager box -->
+        <rect x="400" y="175" width="310" height="120" rx="3" fill="var(--tint)" stroke="var(--rule)" stroke-width="1"/>
+        <text x="555" y="197" text-anchor="middle" font-family="var(--sans)" font-size="10" font-weight="600" fill="var(--ink)">Senior Manager</text>
+        <text x="555" y="211" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--mid)">Corporate Marketing</text>
+        <line x1="420" y1="222" x2="690" y2="222" stroke="var(--rule)" stroke-width=".5"/>
+        <text x="420" y="240" font-family="var(--sans)" font-size="8" fill="var(--mid)">Strategic sponsorships and partnership execution</text>
+        <text x="420" y="254" font-family="var(--sans)" font-size="8" fill="var(--mid)">Agency partner relationship management</text>
+        <text x="420" y="268" font-family="var(--sans)" font-size="8" fill="var(--mid)">Brand reach aligned to corporate marketing objectives</text>
       </svg>
     </div>
   </div>
@@ -472,7 +533,44 @@
     <p class="intro">Disease-education campaigns &mdash; known within the industry as &ldquo;unbranded&rdquo; campaigns &mdash; are a significant communications category in pharmaceutical marketing. They reach patients and healthcare professionals in spaces where branded promotion is not available, and at a scale that requires consistent visual and regulatory standards. This program established the governance architecture to operate that category with coherence across all markets.</p>
 
     <h3 style="margin-top:1.5rem;">Context</h3>
-    <p>Unbranded campaigns were produced across commercial, medical affairs, and corporate functions, each sourcing its own creative direction. The company&rsquo;s brand guidelines organized color into three tiers &mdash; a primary palette anchoring 80% of every layout, a secondary palette of warm tones reserved for photography and pacing, and a tertiary palette designated for data visualization and functional use:</p>
+    <p>Unbranded campaigns were produced across commercial, medical affairs, and corporate functions, each sourcing its own creative direction. The agency of record had mapped the landscape as a spectrum &mdash; ranging from masterbrand materials at one end to fully unbranded campaigns at the other, with graduated ratios of branded-to-unbranded visual identity at each stage:</p>
+
+    <!-- MASTERBRAND / UNBRANDED SPECTRUM -->
+    <div class="spectrum-wrapper">
+      <div class="spectrum-attr">Masterbrand/unbranded campaign spectrum &mdash; developed by agency of record</div>
+      <div class="spectrum-bar">
+        <div class="spectrum-segment" style="background:var(--tint);">
+          <div class="spectrum-segment-label">Masterbrand</div>
+          <div class="fill-bar"><div class="fill-branded" style="width:100%;"></div></div>
+        </div>
+        <div class="spectrum-segment">
+          <div class="spectrum-segment-label">Unbranded 1</div>
+          <div class="spectrum-segment-ratio">70 / 30</div>
+          <div class="fill-bar"><div class="fill-branded" style="width:70%;"></div><div class="fill-unbranded" style="width:30%;"></div></div>
+        </div>
+        <div class="spectrum-segment">
+          <div class="spectrum-segment-label">Unbranded 2</div>
+          <div class="spectrum-segment-ratio">50 / 50</div>
+          <div class="fill-bar"><div class="fill-branded" style="width:50%;"></div><div class="fill-unbranded" style="width:50%;"></div></div>
+        </div>
+        <div class="spectrum-segment">
+          <div class="spectrum-segment-label">Unbranded 3</div>
+          <div class="spectrum-segment-ratio">50 / 50</div>
+          <div class="fill-bar"><div class="fill-branded" style="width:50%;"></div><div class="fill-unbranded" style="width:50%;"></div></div>
+        </div>
+        <div class="spectrum-segment">
+          <div class="spectrum-segment-label">Unbranded 4</div>
+          <div class="spectrum-segment-ratio">25 / 75</div>
+          <div class="fill-bar"><div class="fill-branded" style="width:25%;"></div><div class="fill-unbranded" style="width:75%;"></div></div>
+        </div>
+      </div>
+      <div class="spectrum-axis">
+        <span>&larr; Closer to core brand</span>
+        <span>More independent &rarr;</span>
+      </div>
+    </div>
+
+    <p>The spectrum established that unbranded campaigns are not a binary category &mdash; they exist along a continuum. The company&rsquo;s brand guidelines organized color into three tiers &mdash; a primary palette anchoring 80% of every layout, a secondary palette of warm tones reserved for photography and pacing, and a tertiary palette designated for data visualization and functional use:</p>
 
     <!-- PALETTE HIERARCHY -->
     <div style="margin:1.25rem 0 1.5rem;">
@@ -514,81 +612,44 @@
       </div>
     </div>
 
-    <h3>Campaign Spectrum</h3>
-    <p>The agency of record had mapped the relationship between branded and unbranded materials as a continuum &mdash; campaigns positioned along a spectrum from masterbrand identity through progressively unbranded executions, each with a different ratio of branded to unbranded visual language:</p>
-
-    <!-- MASTERBRAND/UNBRANDED SPECTRUM -->
-    <div style="margin:1.25rem 0;">
-      <div style="font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin-bottom:.6rem;">Masterbrand / Unbranded Campaign Spectrum <span style="font-weight:400;font-style:italic;">&mdash; agency of record</span></div>
-      <svg viewBox="0 0 740 90" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
-        <!-- track -->
-        <line x1="30" y1="35" x2="710" y2="35" stroke="#E2DCF0" stroke-width="2"/>
-        <!-- nodes -->
-        <circle cx="30" cy="35" r="10" fill="var(--accent)" opacity=".9"/>
-        <circle cx="200" cy="35" r="10" fill="var(--accent)" opacity=".7"/>
-        <circle cx="370" cy="35" r="10" fill="var(--accent)" opacity=".5"/>
-        <circle cx="540" cy="35" r="10" fill="var(--accent)" opacity=".35"/>
-        <circle cx="710" cy="35" r="10" fill="var(--accent)" opacity=".2"/>
-        <!-- labels -->
-        <text x="30" y="62" text-anchor="middle" font-family="var(--sans)" font-size="9" font-weight="600" fill="var(--ink)">Masterbrand</text>
-        <text x="200" y="62" text-anchor="middle" font-family="var(--sans)" font-size="9" fill="var(--mid)">Campaign 1</text>
-        <text x="200" y="74" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--sub)">70 / 30</text>
-        <text x="370" y="62" text-anchor="middle" font-family="var(--sans)" font-size="9" fill="var(--mid)">Campaign 2</text>
-        <text x="370" y="74" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--sub)">50 / 50</text>
-        <text x="540" y="62" text-anchor="middle" font-family="var(--sans)" font-size="9" fill="var(--mid)">Campaign 3</text>
-        <text x="540" y="74" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--sub)">25 / 75</text>
-        <text x="710" y="62" text-anchor="middle" font-family="var(--sans)" font-size="9" fill="var(--mid)">Campaign 4</text>
-        <text x="710" y="74" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--sub)">10 / 90</text>
-        <!-- axis labels -->
-        <text x="30" y="14" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--sub)" letter-spacing=".06em">BRANDED</text>
-        <text x="710" y="14" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--sub)" letter-spacing=".06em">UNBRANDED</text>
-      </svg>
-    </div>
-
-    <p>This spectrum established that unbranded campaigns are not binary &mdash; they exist on a continuum of visual proximity to the corporate brand. The governance challenge that followed: how much flexibility should the guidelines allow at each position along this continuum? Markets operating across more than 60 countries required room for regional adaptation, while the enterprise required visual coherence and regulatory clarity. This led to an expanded guidelines flexibility framework:</p>
-
-    <!-- FLEXIBILITY SPECTRUM -->
-    <div style="margin:1.25rem 0 1.75rem;">
-      <div style="font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin-bottom:.6rem;">Guidelines Flexibility Spectrum <span style="font-weight:400;font-style:italic;">&mdash; expanded internally</span></div>
-      <svg viewBox="0 0 740 75" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
-        <!-- gradient track -->
-        <defs>
-          <linearGradient id="flexgrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="var(--accent)" stop-opacity=".85"/>
-            <stop offset="100%" stop-color="var(--accent)" stop-opacity=".1"/>
-          </linearGradient>
-        </defs>
-        <rect x="30" y="28" width="680" height="6" rx="3" fill="url(#flexgrad)"/>
-        <!-- nodes -->
-        <circle cx="30" cy="31" r="12" fill="var(--accent)" opacity=".85"/>
-        <circle cx="165" cy="31" r="11" fill="var(--accent)" opacity=".7"/>
-        <circle cx="305" cy="31" r="10" fill="var(--accent)" opacity=".55"/>
-        <circle cx="440" cy="31" r="9" fill="var(--accent)" opacity=".4"/>
-        <circle cx="575" cy="31" r="8" fill="var(--accent)" opacity=".25"/>
-        <circle cx="710" cy="31" r="7" fill="var(--accent)" opacity=".12"/>
-        <!-- endpoints -->
-        <text x="30" y="60" text-anchor="middle" font-family="var(--sans)" font-size="8" font-weight="600" fill="var(--accent)" letter-spacing=".06em">FIXED</text>
-        <text x="710" y="60" text-anchor="middle" font-family="var(--sans)" font-size="8" font-weight="600" fill="var(--sub)" letter-spacing=".06em">FLEXIBLE</text>
-        <!-- annotations -->
-        <text x="30" y="18" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--sub)">Logo, primary palette</text>
-        <text x="370" y="18" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--sub)">Color application, photography</text>
-        <text x="710" y="18" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--sub)">Regional adaptation</text>
-      </svg>
-    </div>
-
-    <p>The opportunity lay in how the palette was being applied across unbranded campaigns &mdash; and in the distance between unbranded and branded materials within individual therapeutic areas.</p>
+    <p>The opportunity lay in how this palette was being applied across unbranded campaigns &mdash; and in the distance between unbranded and branded materials within individual therapeutic areas.</p>
 
     <h3>Findings</h3>
-    <p>A category-wide analysis was conducted with the team, mapping visual identity across markets and therapeutic areas and measuring how unbranded campaign palettes related to branded product palettes within the same disease categories. The data showed that in several therapeutic areas, unbranded campaigns were drawing from the same primary and secondary color families as branded product materials &mdash; placing them in close visual proximity. In a regulated industry, color distance between branded and unbranded materials is a compliance consideration.</p>
+    <p>The team conducted a category-wide analysis, mapping visual identity across markets and therapeutic areas and measuring how unbranded campaign palettes related to branded product palettes within the same disease categories. The data showed that in several therapeutic areas, unbranded campaigns were drawing from the same primary and secondary color families as branded product materials &mdash; placing them in close visual proximity. In a regulated industry, color distance between branded and unbranded materials is a compliance consideration.</p>
 
     <p>The proposed direction: assign each therapeutic area a dedicated color family from the tertiary palette &mdash; Oncology, Hematology, Cardiovascular, Immunology, and Neuroscience &mdash; so that unbranded campaigns are visually distinct from branded materials by design, not by discretion. The tertiary tier is structurally separated from the primary and secondary palettes used in branded work; dedicating one color family per therapeutic area would create enforceable visual separation across all markets. Initial hypothetical assignments mapped Oncology to the Mint family and Hematology to Aqua, with the remaining therapeutic areas and color families to be determined through further investigation.</p>
 
     <h3>Worldwide Standard</h3>
     <p>The findings informed a proposed worldwide standard for unbranded campaigns &mdash; a unified framework covering visual language, color strategy, and application guidelines across all markets and therapeutic areas. The framework was designed with structured flexibility: a consistent enterprise system capable of accommodating regional variation and disease-area specificity while maintaining coherence and regulatory clarity.</p>
-    <p>Developed without external agency support, drawing on prior category research to inform and validate the direction. A successful outcome of this workstream would be the implementation of a standard operating procedure &mdash; codifying and institutionalizing these guidelines across the enterprise so that compliance is sustained beyond any individual team or tenure.</p>
+
+    <p>Building on the agency&rsquo;s masterbrand/unbranded spectrum, this program introduced a guidelines flexibility spectrum to govern how the full set of brand standards &mdash; design, visual identity, and application guidelines, not only color &mdash; apply to local market unbranded campaigns at each point along that continuum:</p>
+
+    <!-- FLEXIBILITY SPECTRUM -->
+    <div class="spectrum-wrapper">
+      <div class="spectrum-attr">Guidelines flexibility spectrum &mdash; built upon agency work, extended for market application</div>
+      <div class="flex-spectrum">
+        <div class="flex-spectrum-label">Fixed</div>
+        <div class="flex-spectrum-track">
+          <div class="flex-spectrum-dots">
+            <div class="flex-dot filled"></div>
+            <div class="flex-dot filled"></div>
+            <div class="flex-dot filled" style="opacity:.7;"></div>
+            <div class="flex-dot" style="opacity:.7;"></div>
+            <div class="flex-dot" style="opacity:.5;"></div>
+            <div class="flex-dot" style="opacity:.4;"></div>
+            <div class="flex-dot" style="opacity:.3;"></div>
+          </div>
+        </div>
+        <div class="flex-spectrum-label">Flexible</div>
+      </div>
+    </div>
+
+    <p>Campaigns closer to the masterbrand on the spectrum adhere to stricter corporate standards; campaigns further along the unbranded continuum have greater latitude for regional and therapeutic-area adaptation &mdash; within the governance framework. Color was one dimension of this system; typography, photography style, layout structure, and messaging tone were equally governed by the spectrum position.</p>
+
+    <p>Developed without external agency support, drawing on prior category research to inform and validate the direction. The intended outcome: implementation of a standard operating procedure to codify and institutionalize these guidelines across the enterprise, sustaining compliance beyond any individual team or tenure.</p>
 
     <h3>Operational Infrastructure</h3>
-    <p>Three layers of tooling supported the governance framework at enterprise scale. A brand decision tool, developed by the agency of record, encoded the existing rules &mdash; routing teams through campaign type, therapeutic area, and market to the applicable guidelines and palette. Building on that foundation, a web-based template generator was conceived and prototyped in-house as a working proof of concept &mdash; extending the agency&rsquo;s governance logic into a self-service tool where teams across all markets configure asset type, content, and palette and receive a compliant output for their therapeutic area. A generative AI future state was subsequently scoped, extending the concept into a full design system build.</p>
+    <p>Three layers of tooling supported the governance framework at enterprise scale. A brand decision tool, developed by the agency of record, encoded the existing rules &mdash; routing teams through campaign type, therapeutic area, and market to the applicable guidelines and palette. Building on that foundation, this program conceived and prototyped a web-based template generator in-house as a working proof of concept &mdash; extending the agency&rsquo;s governance logic into a self-service tool where teams across all markets configure asset type, content, and palette and receive a compliant output for their therapeutic area. A generative AI future state then extended the concept into a full design system build.</p>
 
     <!-- INFRASTRUCTURE PANELS -->
     <div class="infra-row">
@@ -641,7 +702,7 @@
     <p style="margin-top:1.25rem;">The decision tool encodes governance logic. The template generator operationalizes it as a self-service layer &mdash; with a live preview, approved color palette, configurable asset types, and image upload. The future state vision extends the architecture into generative AI, where the design system itself governs output quality across all markets and therapeutic areas.</p>
 
     <h3>Proposed Rollout</h3>
-    <p>A supporting education program was proposed for teams across commercial, medical affairs, and corporate functions &mdash; structured as a series of internal roadshow presentations and townhall sessions to build shared understanding of the governance standard and its regulatory rationale across all relevant functions and markets.</p>
+    <p>A supporting education program was designed for teams across commercial, medical affairs, and corporate functions &mdash; structured as a series of internal roadshow presentations and townhall sessions to build shared understanding of the governance standard and its regulatory rationale across all relevant functions and markets.</p>
 
   </div>
 
