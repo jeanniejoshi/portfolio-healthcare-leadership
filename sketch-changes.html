@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sketch — Three Changes for Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --ink: #1a1a2e;
+    --mid: #3d3d5c;
+    --sub: #8888a0;
+    --accent: #5C3D8F;
+    --accent2: #8B5CC7;
+    --tint: #F3EFF8;
+    --tint2: #E8E0F2;
+    --white: #fff;
+    --rule: #E2DCF0;
+    --dark: #2A1F3D;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ink); background: #FAFAFC; line-height: 1.7; -webkit-font-smoothing: antialiased; max-width: 900px; margin: 0 auto; padding: 3rem; }
+  h1 { font-family: var(--serif); font-size: 1.5rem; margin: 3rem 0 1rem; border-bottom: 1px solid var(--rule); padding-bottom: .5rem; }
+  h2 { font-family: var(--serif); font-size: 1.15rem; margin: 2rem 0 .75rem; color: var(--accent); }
+  h3 { font-family: var(--sans); font-size: .86rem; margin: 1.5rem 0 .5rem; font-weight: 600; }
+  p { font-size: .86rem; color: var(--mid); line-height: 1.82; margin-bottom: 1rem; }
+  .note { font-size: .76rem; color: var(--accent); background: var(--tint); padding: .75rem 1rem; border-left: 3px solid var(--accent); margin: 1rem 0; }
+
+  /* Reused styles from main file */
+  .spectrum-wrapper { margin: 1rem 0; }
+  .spectrum-attr { font-size: .58rem; color: var(--sub); font-style: italic; margin-bottom: .5rem; }
+  .spectrum-bar { display: flex; align-items: stretch; border: 1px solid var(--rule); overflow: hidden; margin-bottom: .25rem; }
+  .spectrum-segment { flex: 1; padding: .35rem .3rem; text-align: center; border-right: 1px solid var(--rule); }
+  .spectrum-segment:last-child { border-right: none; }
+  .spectrum-segment-label { font-size: .56rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .spectrum-segment-ratio { font-size: .5rem; color: var(--sub); }
+  .spectrum-axis { display: flex; justify-content: space-between; padding: 0 .15rem; }
+  .spectrum-axis span { font-size: .5rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sub); }
+
+  .palette-tier { margin-bottom: .5rem; }
+  .palette-label { font-size: .6rem; font-weight: 600; color: var(--ink); margin-bottom: .2rem; }
+  .palette-label .usage { font-weight: 400; color: var(--sub); font-size: .56rem; }
+  .palette-swatches { display: flex; flex-wrap: wrap; gap: 2px; }
+  .swatch { width: 40px; height: 24px; display: flex; align-items: flex-end; padding: 1px 2px; }
+  .swatch-name { font-size: .38rem; color: rgba(0,0,0,.5); }
+  .swatch-name.light { color: rgba(255,255,255,.7); }
+
+  .flex-spectrum { display: flex; align-items: center; gap: .4rem; margin: .75rem 0; padding: .5rem .75rem; border: 1px solid var(--rule); background: var(--white); }
+  .flex-spectrum-label { font-size: .56rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sub); white-space: nowrap; }
+  .flex-spectrum-track { flex: 1; height: 6px; background: var(--tint2); border-radius: 3px; position: relative; }
+  .flex-spectrum-dots { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 2px; }
+  .flex-dot { width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--accent); }
+  .flex-dot.filled { background: var(--accent); }
+
+  .infra-row { display: grid; grid-template-columns: 1fr 30px 1.4fr 30px 1fr; gap: 0; margin-top: .75rem; align-items: start; }
+  .infra-panel { border: 1px solid var(--rule); padding: .65rem .75rem; background: var(--white); min-width: 0; overflow: hidden; font-size: .56rem; }
+  .infra-panel-title { font-size: .58rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .15rem; }
+  .infra-panel-attr { font-size: .52rem; color: var(--sub); font-style: italic; margin-bottom: .4rem; }
+  .infra-arrow { display: flex; align-items: center; justify-content: center; font-size: .86rem; color: var(--rule); }
+</style>
+</head>
+<body>
+
+<h1>SKETCH 1: GenAI Section — Tufte Timeline + Use-Case Grid</h1>
+
+<div class="note">Tufte principle: the data IS the visualization. No chrome, no boxes around phases. Timeline position = time. Weight = importance. The 8 business units are the data — they should be visible, not hidden inside prose.</div>
+
+<h2>Program Architecture (Tufte SVG)</h2>
+
+<svg viewBox="0 0 760 320" style="max-width:720px;width:100%;height:auto;display:block;margin:1rem auto;" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Timeline axis -->
+  <line x1="80" y1="40" x2="700" y2="40" stroke="#E2DCF0" stroke-width=".5"/>
+  <text x="80" y="30" font-family="var(--sans)" font-size="8" fill="#8888a0">Q1</text>
+  <text x="280" y="30" font-family="var(--sans)" font-size="8" fill="#8888a0">Q2</text>
+  <text x="480" y="30" font-family="var(--sans)" font-size="8" fill="#8888a0">Q3</text>
+  <text x="660" y="30" font-family="var(--sans)" font-size="8" fill="#8888a0">Q4</text>
+
+  <!-- Track 1: Intro Gen AI (Q1, single point) -->
+  <text x="20" y="72" font-family="var(--sans)" font-size="9.5" font-weight="600" fill="#3d3d5c">Intro Session</text>
+  <text x="20" y="84" font-family="var(--sans)" font-size="7.5" fill="#8888a0">All Corporate Affairs</text>
+  <line x1="100" y1="72" x2="180" y2="72" stroke="#5C3D8F" stroke-width="2.5"/>
+  <circle cx="140" cy="72" r="3" fill="#5C3D8F"/>
+
+  <!-- Track 2: BU Deep Dives (Q2–Q3, 8 data points) -->
+  <text x="20" y="120" font-family="var(--sans)" font-size="9.5" font-weight="700" fill="#5C3D8F">Deep Dives</text>
+  <text x="20" y="132" font-family="var(--sans)" font-size="7.5" fill="#8888a0">8 business units</text>
+  <line x1="240" y1="120" x2="560" y2="120" stroke="#5C3D8F" stroke-width="2.5"/>
+
+  <!-- 8 BU dots along the deep dive track -->
+  <circle cx="260" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="300" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="340" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="380" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="420" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="460" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="500" cy="120" r="3.5" fill="#5C3D8F"/>
+  <circle cx="540" cy="120" r="3.5" fill="#5C3D8F"/>
+
+  <!-- BU names, angled for readability -->
+  <text x="260" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 260 145)">Corp Comms</text>
+  <text x="300" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 300 145)">Patient Outreach</text>
+  <text x="340" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 340 145)">Policy &amp; Gov Affairs</text>
+  <text x="380" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 380 145)">Purpose / ESG</text>
+  <text x="420" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 420 145)">R&amp;D Comms</text>
+  <text x="460" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 460 145)">Strategy &amp; Issues</text>
+  <text x="500" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 500 145)">GPS Comms</text>
+  <text x="540" y="145" font-family="var(--sans)" font-size="7" fill="#3d3d5c" transform="rotate(35 540 145)">Market Comms</text>
+
+  <!-- Track 3: Ad Hoc Workshops (Q3–Q4, open-ended) -->
+  <text x="20" y="220" font-family="var(--sans)" font-size="9.5" font-weight="600" fill="#3d3d5c">Prompting Workshops</text>
+  <text x="20" y="232" font-family="var(--sans)" font-size="7.5" fill="#8888a0">Ad hoc, ongoing</text>
+  <line x1="440" y1="220" x2="700" y2="220" stroke="#5C3D8F" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Track 4: Experimental AI (parallel, Q2–Q4) -->
+  <text x="20" y="268" font-family="var(--sans)" font-size="9.5" font-weight="600" fill="#3d3d5c">Experimental AI</text>
+  <text x="20" y="280" font-family="var(--sans)" font-size="7.5" fill="#8888a0">Use-case prioritization, custom GPT</text>
+  <line x1="240" y1="268" x2="700" y2="268" stroke="#D8D0E8" stroke-width="1.5"/>
+
+  <!-- Legend -->
+  <line x1="80" y1="310" x2="108" y2="310" stroke="#5C3D8F" stroke-width="2.5"/>
+  <text x="114" y="313" font-family="var(--sans)" font-size="7" fill="#8888a0">facilitated</text>
+  <line x1="200" y1="310" x2="228" y2="310" stroke="#5C3D8F" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="234" y="313" font-family="var(--sans)" font-size="7" fill="#8888a0">ongoing</text>
+  <line x1="310" y1="310" x2="338" y2="310" stroke="#D8D0E8" stroke-width="1.5"/>
+  <text x="344" y="313" font-family="var(--sans)" font-size="7" fill="#8888a0">parallel track</text>
+
+</svg>
+
+<div class="note">Each dot on the Deep Dives track = one business unit session. The viewer sees 8 sessions without being told "eight business unit sessions" — the data shows it. BU names rotate at 35° for legibility without consuming vertical space.</div>
+
+
+<h1>SKETCH 2: Unbranded Section — Visuals Restored at ~50% Height</h1>
+
+<div class="note">Same visual elements as v3 but compressed: spectrum bars shorter, palette swatches smaller, infrastructure panels tighter. ~50% of original vertical space. Enough to communicate the system; scannable for a recruiter who wants to ask about it in interview.</div>
+
+<h2>Masterbrand / Unbranded Spectrum</h2>
+<div class="spectrum-wrapper">
+  <div class="spectrum-attr">Masterbrand/unbranded campaign spectrum &mdash; developed by agency of record</div>
+  <div class="spectrum-bar">
+    <div class="spectrum-segment" style="background:var(--tint);">
+      <div class="spectrum-segment-label">Masterbrand</div>
+    </div>
+    <div class="spectrum-segment">
+      <div class="spectrum-segment-label">Unbranded 1</div>
+      <div class="spectrum-segment-ratio">70 / 30</div>
+    </div>
+    <div class="spectrum-segment">
+      <div class="spectrum-segment-label">Unbranded 2</div>
+      <div class="spectrum-segment-ratio">50 / 50</div>
+    </div>
+    <div class="spectrum-segment">
+      <div class="spectrum-segment-label">Unbranded 3</div>
+      <div class="spectrum-segment-ratio">50 / 50</div>
+    </div>
+    <div class="spectrum-segment">
+      <div class="spectrum-segment-label">Unbranded 4</div>
+      <div class="spectrum-segment-ratio">25 / 75</div>
+    </div>
+  </div>
+  <div class="spectrum-axis">
+    <span>&larr; More branded</span>
+    <span>More unbranded &rarr;</span>
+  </div>
+</div>
+
+<h2>Palette Hierarchy (Compressed)</h2>
+<div class="palette-tier">
+  <div class="palette-label">Primary <span class="usage">80% of layout. Brand anchor.</span></div>
+  <div class="palette-swatches">
+    <div class="swatch" style="background:#003DA5;"><span class="swatch-name light">Blue</span></div>
+    <div class="swatch" style="background:#FFFFFF;border:1px solid var(--rule);"><span class="swatch-name">White</span></div>
+    <div class="swatch" style="background:#1B1B1B;"><span class="swatch-name light">Black</span></div>
+  </div>
+</div>
+<div class="palette-tier">
+  <div class="palette-label">Secondary <span class="usage">&le;20%. Warmth &amp; photography.</span></div>
+  <div class="palette-swatches">
+    <div class="swatch" style="background:#E8927C;"><span class="swatch-name">Coral</span></div>
+    <div class="swatch" style="background:#F2C75C;"><span class="swatch-name">Gold</span></div>
+    <div class="swatch" style="background:#A15A95;"><span class="swatch-name light">Plum</span></div>
+  </div>
+</div>
+<div class="palette-tier">
+  <div class="palette-label">Tertiary <span class="usage">Data &amp; functional. Proposed for unbranded.</span></div>
+  <div class="palette-swatches">
+    <div class="swatch" style="background:#6ECEB2;"><span class="swatch-name">Mint</span></div>
+    <div class="swatch" style="background:#69B8F7;"><span class="swatch-name">Aqua</span></div>
+    <div class="swatch" style="background:#C4D600;"><span class="swatch-name">Lime</span></div>
+    <div class="swatch" style="background:#FF6900;"><span class="swatch-name light">Amber</span></div>
+  </div>
+</div>
+
+<h2>Guidelines Flexibility Spectrum</h2>
+<div class="flex-spectrum">
+  <div class="flex-spectrum-label">Fixed</div>
+  <div class="flex-spectrum-track">
+    <div class="flex-spectrum-dots">
+      <div class="flex-dot filled"></div>
+      <div class="flex-dot filled"></div>
+      <div class="flex-dot"></div>
+      <div class="flex-dot"></div>
+      <div class="flex-dot"></div>
+    </div>
+  </div>
+  <div class="flex-spectrum-label">Flexible</div>
+</div>
+
+<h2>Operational Infrastructure (Compressed 3-Panel)</h2>
+<div class="infra-row">
+  <div class="infra-panel">
+    <div class="infra-panel-title">Decision Tool</div>
+    <div class="infra-panel-attr">Developed by agency of record</div>
+    <div style="color:var(--mid);line-height:1.5;">Campaign type &rarr; Therapeutic area &rarr; Market &rarr; Applicable palette &amp; guidelines</div>
+  </div>
+  <div class="infra-arrow">&rarr;</div>
+  <div class="infra-panel">
+    <div class="infra-panel-title">Template Generator</div>
+    <div class="infra-panel-attr">Originated and built in-house</div>
+    <div style="color:var(--mid);line-height:1.5;">Self-service tool: configure asset type, content, palette &rarr; compliant output</div>
+  </div>
+  <div class="infra-arrow">&rarr;</div>
+  <div class="infra-panel">
+    <div class="infra-panel-title">Future State</div>
+    <div class="infra-panel-attr">Advanced into GenAI + design system concept</div>
+    <div style="color:var(--mid);line-height:1.5;">Design system governs output quality across all markets</div>
+  </div>
+</div>
+
+
+<h1>SKETCH 3: Congress Section — Image Restored</h1>
+<div class="note">The branded congress table display image from v3 will be restored. This is the base64-encoded image that was in the original events section. It provides the only visual anchor for this otherwise text-only section.</div>
+
+<p>Image will be placed below the card content, same as v3 — full-width, 140px height, object-fit: cover.</p>
+
+</body>
+</html>
