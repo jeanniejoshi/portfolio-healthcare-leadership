@@ -90,9 +90,13 @@
   .expand-head { flex: 1; }
   .expand-title { font-size: .78rem; font-weight: 600; color: var(--ink); }
   .expand-meta { font-size: .6rem; color: var(--gray-light); margin-top: .05rem; }
-  .expand-badge { font-size: .52rem; padding: .12rem .4rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .expand-badge { font-family: var(--sans); font-size: .52rem; padding: .12rem .4rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
   .badge-executed { background: var(--teal); color: white; }
+  .badge-delivered { background: var(--gray-mid); color: white; }
+  .badge-pipeline { background: var(--warm-gold-light); color: var(--warm-gold); }
+  .badge-scoped { background: var(--warm-rose-light); color: var(--warm-rose); }
   .badge-proposed { background: var(--teal-light); color: var(--teal); }
+  .badge-adopted { background: var(--purple-light); color: var(--purple); }
   .expand-body { padding: .5rem 0 1rem 1.25rem; font-size: .8rem; color: var(--gray-dark); line-height: 1.8; }
   .expand-item summary:hover .expand-title { color: var(--purple); }
 
@@ -228,6 +232,14 @@
     .nav-links { display: none; }
     .dtable .drow { grid-template-columns: 1fr; }
     .tg-body { grid-template-columns: 1fr; }
+    .matrix-wrap, .color-audit { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .matrix-wrap svg { min-width: 600px; }
+    .color-audit > div { min-width: 480px; }
+    .spectrum-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .spectrum-bar { min-width: 0; }
+    .spectrum-segment-label { font-size: .52rem; }
+    .spectrum-segment-ratio { font-size: .44rem; }
+    .flex-spectrum { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
   }
 </style>
 </head>
@@ -239,8 +251,8 @@
     <li><a href="#overview">Overview</a></li>
     <li><a href="#platforms">Reputation Platforms</a></li>
     <li><a href="#awards">Recognition</a></li>
-    <li><a href="#operations">Operational Excellence</a></li>
     <li><a href="#governance">Brand Governance</a></li>
+    <li><a href="#operations">Operational Excellence</a></li>
     <li><a href="#unbranded">Unbranded Campaigns</a></li>
     <li><a href="#campaign">Omnichannel Campaign</a></li>
     <li><a href="#congresses">Congresses</a></li>
@@ -256,8 +268,8 @@
 
     <!-- INTRO -->
     <div style="max-width:680px;margin-bottom:2.5rem;">
-      <div style="font-family:var(--serif);font-size:.95rem;color:var(--ink);line-height:1.7;margin-bottom:.75rem;">Directed corporate marketing and brand within Corporate Affairs at a Fortune 100 biopharmaceutical company in a newly created role. Implemented unified brand governance, launched cross-market omnichannel campaigns, established global standards for unbranded disease education, and led generative AI (GenAI) literacy initiatives across 41 markets, enhancing brand consistency and reputation management.</div>
-      <div style="font-size:.82rem;color:var(--gray-mid);line-height:1.85;">Led a three-person team within a 15+ member corporate marketing and creative unit, managing about $1.8M annually across agency partnerships, campaign development, and brand programs. Coordinated with Policy Affairs, Executive Communications, Environmental, Social, and Governance (ESG), Investor Relations, Human Resources, and external agencies. Corporate Affairs reported to the C-suite and included corporate marketing, corporate creative, digital and social, strategic communications, and cross-functional enterprise partners.</div>
+      <div style="font-family:var(--serif);font-size:.95rem;color:var(--ink);line-height:1.7;margin-bottom:.75rem;">Directed corporate marketing and brand within Corporate Affairs at a Fortune 100 biopharmaceutical company in a newly created role. Implemented unified brand governance across 41 markets, launched cross-market omnichannel campaigns, established global standards for unbranded disease education, and co-led generative AI (GenAI) literacy initiatives, enhancing brand consistency and reputation management.</div>
+      <div style="font-size:.82rem;color:var(--gray-mid);line-height:1.85;">Led a three-person team within a 15+ member corporate marketing and creative unit, managing about $1.8M annually across agency partnerships, campaign development, and brand programs. Coordinated with Policy Affairs, Executive Communications, Environmental, Social, and Governance (ESG), Investor Relations, Human Resources, and external partners. Corporate Affairs reported to the C-suite and included corporate marketing, corporate creative, digital and social, strategic communications, and cross-functional enterprise partners.</div>
     </div>
 
     <!-- METRICS -->
@@ -292,7 +304,7 @@
       </div>
       <div class="impact-item">
         <div class="impact-dot" style="background:var(--purple);" aria-hidden="true"></div>
-        <div class="impact-text">Replaced a manual, email-driven brand request workflow with an automated intake and routing system, reducing average turnaround from five days to two and cutting workload by 42% across 41 global markets.</div>
+        <div class="impact-text">Replaced a manual, email-driven brand request workflow with an automated intake and routing system, reducing average turnaround from five days to two and cutting workload by 42%.</div>
       </div>
     </div>
 
@@ -385,7 +397,7 @@
 
     <!-- Tufte matrix -->
     <div class="matrix-wrap" aria-label="Platform mapping matrix">
-      <svg viewBox="0 0 700 240" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 700 240" style="max-width:100%;width:100%;height:auto;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
         <line x1="80" y1="30" x2="80" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
         <line x1="320" y1="30" x2="320" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
         <line x1="560" y1="30" x2="560" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
@@ -409,7 +421,9 @@
         <circle cx="320" cy="180" r="5.5" fill="none" stroke="#3B8C8C" stroke-width="1.5"/><text x="335" y="183" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">NYT Well</text>
         <circle cx="80" cy="180" r="5.5" fill="none" stroke="#3B8C8C" stroke-width="1.5"/><text x="95" y="183" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">NPR</text>
         <circle cx="80" cy="225" r="4" fill="#3B8C8C"/><text x="90" y="228" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Executed</text>
-        <circle cx="160" cy="225" r="4" fill="none" stroke="#3B8C8C" stroke-width="1.5"/><text x="170" y="228" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Delivered</text>
+        <circle cx="160" cy="225" r="4" fill="#4A4546"/><text x="170" y="228" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Delivered</text>
+        <circle cx="240" cy="225" r="4" fill="#C9A84C"/><text x="250" y="228" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Pipeline</text>
+        <circle cx="310" cy="225" r="4" fill="#D4837A"/><text x="320" y="228" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Scoped</text>
       </svg>
     </div>
 
@@ -460,8 +474,19 @@
       <details class="expand-item">
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <div class="expand-head"><div class="expand-title">New York Times Wellness Event and Branded Content Program</div><div class="expand-meta">Strategic &middot; Culture / Public</div></div>
+          <span class="expand-badge badge-pipeline">Pipeline</span>
+        </summary>
+        <div class="expand-body">
+          <p style="margin-bottom:.5rem;">Authored the strategic case for participation in the inaugural NYT Wellness Event at the Times Center, New York City (300+ attendees), integrating event sponsorship and activation, placement within the NYT Magazine health special issue, and distribution through the Well newsletter reaching 1.5M subscribers.</p>
+          <p>The partnership framework extended beyond event activation into a branded thought leadership content program developed through the same editorial health and wellness platform. Branded content program details available upon request.</p>
+        </div>
+      </details>
+      <details class="expand-item">
+        <summary>
+          <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           <div class="expand-head"><div class="expand-title">TED Leadership Content Series: $850K</div><div class="expand-meta">Flagship &middot; Business / Policy / Culture</div></div>
-          <span class="expand-badge badge-proposed">Delivered</span>
+          <span class="expand-badge badge-delivered">Delivered</span>
         </summary>
         <div class="expand-body">
           <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -474,7 +499,7 @@
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           <div class="expand-head"><div class="expand-title">TED Flagship Conference: $375K</div><div class="expand-meta">Flagship &middot; Business / Policy</div></div>
-          <span class="expand-badge badge-proposed">Delivered</span>
+          <span class="expand-badge badge-delivered">Delivered</span>
         </summary>
         <div class="expand-body">
           <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -487,7 +512,7 @@
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           <div class="expand-head"><div class="expand-title">World Economic Forum (Davos): $300K+</div><div class="expand-meta">Flagship &middot; Business / Policy</div></div>
-          <span class="expand-badge badge-proposed">Delivered</span>
+          <span class="expand-badge badge-delivered">Delivered</span>
         </summary>
         <div class="expand-body">Refined the activation concept for the World Economic Forum Annual Meeting: senior executive participation, a science film screening for investors and regulators, and networking aligned to existing membership.</div>
       </details>
@@ -495,30 +520,25 @@
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           <div class="expand-head"><div class="expand-title">Washington Post Live: $75K&ndash;$150K</div><div class="expand-meta">Strategic &middot; Business / Policy</div></div>
-          <span class="expand-badge badge-proposed">Proposed</span>
+          <span class="expand-badge badge-scoped">Scoped</span>
         </summary>
         <div class="expand-body">Structured options for sponsored live journalism on healthcare, innovation, and policy with virtual and hybrid formats targeting the Post's business and policy readers.</div>
       </details>
       <details class="expand-item">
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          <div class="expand-head"><div class="expand-title">New York Times Well Event</div><div class="expand-meta">Strategic &middot; Culture / Public</div></div>
-          <span class="expand-badge badge-proposed">Delivered</span>
+          <div class="expand-head"><div class="expand-title">NPR: Audio and Podcast</div><div class="expand-meta">Entry &middot; Culture / Public</div></div>
+          <span class="expand-badge badge-scoped">Scoped</span>
         </summary>
-        <div class="expand-body">
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <div style="flex:1;">Authored the case for participation in the inaugural NYT Well Event at the Times Center, integrating event activation, magazine placement, and Well newsletter distribution to 1.5M subscribers.</div>
-            <div style="flex-shrink:0;"><img src="data:image/png;base64,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IgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD8TMY9pa9u80jQgjgR39ygrMfZiwJimplr7M+owzXSEud8UaH07nHqYiRp6GuaO5TwiCnFRsfX8T7sGMrZJFqdHSUj2O0/dBI+1d23bHVY463LHkEQ6tp7cXfa540+pW61TVDVesP7JmX1C5sl2uV7uzwfGYZWQxu9jW7w9jlKOFcrMvcL7jrJhC1U8jDq2d8HhZR/9yQl32rNEQcNAA4LlEQdG9x0s9oroa8MdRvp5Gzh3IxlpDte7TVaq2sfJMIomOke526xrRqXEngAOpWxDPmhzJxBbP5J4GpbdT0lyhfHX3Wqq9wwsJ0MbWBpOrgT42h4ajQc14eR+zvhvAFVDerpP+XL9Ed6KZ8e5DTH/Vs6kHk48ugCNlx6my1l5Nl9lrBDcY9y8XN/xytaRxjJGjY9Oha3TXvLlLSAaIjKIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD//Z" alt="The New York Times logo" style="width:100px;height:auto;object-fit:contain;border-radius:3px;flex-shrink:0;"/></div>
-          </div>
-        </div>
+        <div class="expand-body">Proposed an audio partnership extending an internal podcast series into NPR's 35M+ weekly listener network, focused on senior professionals and healthcare decision-makers.</div>
       </details>
       <details class="expand-item">
         <summary>
           <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="#3B8C8C" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          <div class="expand-head"><div class="expand-title">NPR: Audio and Podcast</div><div class="expand-meta">Entry &middot; Culture / Public</div></div>
-          <span class="expand-badge badge-proposed">Proposed</span>
+          <div class="expand-head"><div class="expand-title">The Guardian US: Well Actually</div><div class="expand-meta">Strategic &middot; Culture / Public</div></div>
+          <span class="expand-badge badge-scoped">Scoped</span>
         </summary>
-        <div class="expand-body">Proposed an audio partnership extending an internal podcast series into NPR's 35M+ weekly listener network, focused on senior professionals and healthcare decision-makers.</div>
+        <div class="expand-body">Scoped a branded content and live event sponsorship partnership with the editorial health and wellness vertical, evaluating audience reach, content integration, and alignment to unbranded disease education strategy. Presented to internal stakeholders as a second editorial health media platform alongside the print partnership.</div>
       </details>
     </div>
 
@@ -561,6 +581,102 @@
     </div>
   </div>
 
+
+  <!-- ============================================ -->
+  <!-- SECTION: Global Brand Governance -->
+  <!-- ============================================ -->
+  <div class="section reveal" id="governance">
+    <div class="section-header">
+      <div class="section-dot" style="background:var(--gray-mid);" aria-hidden="true"></div>
+      <div class="section-eyebrow" style="color:var(--gray-mid);">Brand Standards</div>
+    </div>
+    <div class="section-title">Global Brand Governance</div>
+    <div class="section-intro">Governed corporate brand standards across digital, executive communications, investor relations, scientific congresses, and the annual report in 41 global markets. The function's reach extended across the corporate brand, leadership communications, global patient initiatives, and research and development days. A longitudinal reputation study across six global markets and seven audience segments measured governance effectiveness, benchmarking the company against seven to nine industry peers per market on familiarity, favorability, trust, and advocacy.</div>
+
+    <!-- Brand Governance Ecosystem SVG -->
+    <div style="margin:1.5rem 0 2rem;margin-left:2.1rem;" aria-label="Brand governance ecosystem diagram">
+      <svg viewBox="0 0 700 340" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Center -->
+        <circle cx="350" cy="160" r="52" fill="#F0E4EE" stroke="#9B2D8F" stroke-width="1.5"/>
+        <text x="350" y="153" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#9B2D8F">CORPORATE BRAND</text>
+        <text x="350" y="166" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="8" fill="#9B2D8F">STANDARDS</text>
+        <text x="350" y="178" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">41 markets</text>
+
+        <!-- Spokes -->
+        <line x1="310" y1="118" x2="200" y2="55" stroke="#E5E0E1" stroke-width="1"/>
+        <line x1="390" y1="118" x2="500" y2="55" stroke="#E5E0E1" stroke-width="1"/>
+        <line x1="298" y1="160" x2="120" y2="160" stroke="#E5E0E1" stroke-width="1"/>
+        <line x1="402" y1="160" x2="580" y2="160" stroke="#E5E0E1" stroke-width="1"/>
+        <line x1="310" y1="202" x2="200" y2="265" stroke="#E5E0E1" stroke-width="1"/>
+        <line x1="390" y1="202" x2="500" y2="265" stroke="#E5E0E1" stroke-width="1"/>
+
+        <!-- Node 1: Visual Identity (top-left) -->
+        <circle cx="185" cy="45" r="6" fill="#706B6C"/>
+        <text x="185" y="33" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Visual Identity</text>
+        <text x="185" y="19" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">logo, typography, color, photography</text>
+
+        <!-- Node 2: Digital Ecosystem (top-right) -->
+        <circle cx="515" cy="45" r="6" fill="#706B6C"/>
+        <text x="515" y="33" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Digital Ecosystem</text>
+        <text x="515" y="19" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">social, web, email, intranet</text>
+
+        <!-- Node 3: Agency Ecosystem (mid-left) -->
+        <circle cx="105" cy="160" r="6" fill="#706B6C"/>
+        <text x="105" y="148" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Agency Ecosystem</text>
+        <text x="105" y="134" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">training, onboarding, production</text>
+
+        <!-- Node 4: Promotional Materials (mid-right) -->
+        <circle cx="595" cy="160" r="6" fill="#706B6C"/>
+        <text x="595" y="148" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Promotional Materials</text>
+        <text x="595" y="134" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">product branded, unbranded, regulatory</text>
+
+        <!-- Node 5: International Compliance (bottom-left) -->
+        <circle cx="185" cy="275" r="6" fill="#706B6C"/>
+        <text x="185" y="292" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">International Compliance</text>
+        <text x="185" y="306" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">market-specific legal entities</text>
+
+        <!-- Node 6: Congress &amp; Exhibit (bottom-right) -->
+        <circle cx="515" cy="275" r="6" fill="#706B6C"/>
+        <text x="515" y="292" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Congress &amp; Exhibit Identity</text>
+        <text x="515" y="306" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">scientific conferences, events</text>
+
+        <!-- Footer label -->
+        <text x="350" y="332" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1" letter-spacing=".08em">GOVERNED PROPERTIES SPANNING 41 MARKETS ACROSS 60+ COUNTRIES</text>
+      </svg>
+    </div>
+
+    <div class="card-list" aria-label="Brand governance deliverables">
+      <div class="card-item">
+        <div class="card-cat" style="color:var(--gray-mid);">Agency Management</div>
+        <div class="card-title">Agency of Record: Corporate Brand</div>
+        <div class="card-body">Directed the agency of record relationship for the corporate brand, covering strategy, briefing, creative production, and delivery standards across all markets.</div>
+      </div>
+      <div class="card-item">
+        <div class="card-cat" style="color:var(--gray-mid);">Enterprise Rollout</div>
+        <div class="card-title">Corporate Visual Identity Transition <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
+        <div class="card-body">Directed a phased rollout of a new corporate visual identity, prioritizing flagship markets and scaling through regional adoption cycles. Governed standards for digital properties, promotional materials, congress identity, and international legal entity compliance. Coordinated agency onboarding, regulatory review alignment for product-branded materials, and centralized asset management supporting self-service access across all operating markets.</div>
+        <div class="card-result" style="border-color:var(--gray-mid);background:#f0eeef;color:var(--gray-mid);">41 markets across 60+ countries</div>
+      </div>
+    </div>
+
+    <details class="infra-expand" style="margin-top:1rem;" aria-label="Global Brand Council business case">
+      <summary>
+        <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="infra-expand-head">
+          <div class="infra-expand-title">Global Brand Council: Business Case</div>
+          <div class="infra-expand-attr">Proposed</div>
+        </div>
+        <span class="infra-expand-hint">view details</span>
+      </summary>
+      <div class="infra-expand-body">
+        <p style="font-size:.76rem;color:var(--gray-dark);line-height:1.7;">Built the business case for a Global Brand Council to coordinate brand standards across Corporate Communications, Investor Relations, Human Resources, Environmental Social and Governance (ESG), and R&amp;D Communications. The business case included a governance framework, standard operating procedures for brand alignment across functions, and an implementation roadmap.</p>
+        <div class="card-result" style="border-color:var(--gray-mid);background:#f0eeef;color:var(--gray-mid);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;margin-top:.5rem;">Governance framework, SOPs, and implementation roadmap delivered</div>
+      </div>
+    </details>
+  </div>
+
+
+  <!-- ============================================ -->
 
   <!-- SECTION: Operational Excellence -->
   <!-- ============================================ -->
@@ -639,19 +755,19 @@
     <div class="card-list" aria-label="Generative AI deliverables">
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Organizational Capability: Track 1</div>
-        <div class="card-title">Generative AI Literacy Curriculum: Corporate Affairs</div>
+        <div class="card-title">Generative AI Literacy Curriculum: Corporate Affairs <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
         <div class="card-body">Co-designed and led a modular AI literacy curriculum for Corporate Affairs, developed in partnership with IT. The program was structured in three phases: a department-wide introduction to generative AI; eight business unit-specific deep-dive sessions tailored to each team's use cases; and ad hoc prompting workshops for ongoing capability building. An AI literacy toolkit developed for Corporate Affairs was deployed by IT partners at a corporate retreat with record attendance of 200 colleagues, accelerating adoption across brand, communications, and policy teams.</div>
         <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">All of Corporate Affairs. Eight business unit sessions. 200-person retreat deployment. Curriculum built from scratch</div>
       </div>
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Organizational Capability: Track 2</div>
-        <div class="card-title">Experimental Generative AI: Use Case Development and Capability Building</div>
+        <div class="card-title">Experimental Generative AI: Use Case Development and Capability Building <span class="expand-badge badge-proposed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Proposed</span></div>
         <div class="card-body">Led a parallel track focused on hands-on AI experimentation within the corporate marketing team. Built a use-case prioritization framework mapping every team workflow to AI applicability, effort, and impact, and proposed a custom Corporate Affairs GPT delivered to brand guidelines, tone of voice, and regulatory parameters.</div>
         <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">AI prioritization framework built. Custom Corporate Affairs GPT proposed and delivered</div>
       </div>
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Creative Application</div>
-        <div class="card-title">Generative AI for Campaign Prototyping</div>
+        <div class="card-title">Generative AI for Campaign Prototyping <span class="expand-badge badge-adopted" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Adopted</span></div>
         <div class="card-body">Applied generative AI tools to prototype a campaign concept, the first application of AI-assisted creative within the function. Produced visual concepts, copy variations, and layout options that demonstrated the efficiency and creative range possible with AI-augmented workflows, presented to function leadership as a proof of concept for broader adoption.</div>
         <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">First application of generative AI to campaign prototyping within the function</div>
       </div>
@@ -660,20 +776,103 @@
     <!-- Brand Request Workflow + Content Infrastructure (collapsible) -->
     <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:2.5rem;">Brand Request Workflow &amp; Content Infrastructure</div>
 
-    <details class="infra-expand" aria-label="Brand request workflow details">
-      <summary>
-        <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="infra-expand-head">
-          <div class="infra-expand-title">Automated Intake and Routing System</div>
-          <div class="infra-expand-attr">Process Redesign</div>
+    <div class="card-list" style="margin-top:.75rem;">
+      <div class="card-item">
+        <div class="card-cat" style="color:var(--warm-rose);">Process Redesign <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
+        <div class="card-title">Automated Intake and Routing System</div>
+
+        <!-- Strategic context callout -->
+        <div style="border-left:3px solid var(--purple);padding:.45rem .8rem;margin-bottom:.6rem;background:var(--purple-light);">
+          <div style="font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.5;">A company-wide rebrand created simultaneous demand for brand guidance across every function and market.</div>
         </div>
-        <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;white-space:nowrap;flex-shrink:0;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--warm-rose);color:white;">42% reduction</span>
-      </summary>
-      <div class="infra-expand-body">
-        <p style="font-size:.76rem;color:var(--gray-dark);line-height:1.7;margin-bottom:.5rem;">Redesigned the corporate brand request process, replacing a manual, email-driven workflow with an automated intake and routing system that reduced average turnaround from five days to two while maintaining quality review standards.</p>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;">42% workload reduction. 24 to 48 hour response standard across 41 global markets</div>
+
+        <div class="card-body">Restructured the corporate brand request process. Audited incoming requests by type and frequency across logo usage, creative services, photo and video, unbranded campaign review, and content library access. Found that the majority were repetitive. Built reference documentation that answered common questions at the source, reducing request volume by 42%. Remaining requests routed through a structured intake process, sorted by request type and matched to the right team. Average turnaround dropped from five business days to 24 to 48 hours. The system served all functions globally, spanning commercial, scientific congress, investor relations, and corporate communications requests.</div>
+
+        <!-- Before / After / Future State comparison table -->
+        <div style="margin:1.25rem 0 .75rem;" aria-label="Before, after, and future state comparison">
+          <svg viewBox="0 0 700 230" style="max-width:100%;width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Column headers -->
+            <text x="10" y="16" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="700" fill="#D4837A" letter-spacing=".06em">BEFORE</text>
+            <text x="250" y="16" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="700" fill="#3B8C8C" letter-spacing=".06em">AFTER</text>
+            <text x="490" y="16" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="700" fill="#B5B0B1" letter-spacing=".06em" font-style="italic" opacity=".55">FUTURE STATE (PROPOSED)</text>
+
+            <line x1="10" y1="24" x2="225" y2="24" stroke="#E5E0E1" stroke-width=".5"/>
+            <line x1="250" y1="24" x2="465" y2="24" stroke="#E5E0E1" stroke-width=".5"/>
+            <line x1="490" y1="24" x2="690" y2="24" stroke="#E5E0E1" stroke-width=".5" opacity=".55"/>
+
+            <!-- Row 1: Common queries -->
+            <text x="10" y="48" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Common queries</text>
+            <text x="10" y="64" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">Email, ad hoc</text>
+            <text x="250" y="48" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Common queries</text>
+            <text x="250" y="64" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">Self-service FAQs</text>
+            <text x="490" y="48" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1" opacity=".55">Common queries</text>
+            <text x="490" y="64" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546" opacity=".55">AI answers from</text>
+            <text x="490" y="78" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546" opacity=".55">reference guides</text>
+
+            <line x1="10" y1="90" x2="225" y2="90" stroke="#E5E0E1" stroke-width=".25" opacity=".4"/>
+            <line x1="250" y1="90" x2="465" y2="90" stroke="#E5E0E1" stroke-width=".25" opacity=".4"/>
+            <line x1="490" y1="90" x2="690" y2="90" stroke="#E5E0E1" stroke-width=".25" opacity=".3"/>
+
+            <!-- Row 2: Routing -->
+            <text x="10" y="114" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Routing</text>
+            <text x="10" y="130" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">Manual triage</text>
+            <text x="250" y="114" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Routing</text>
+            <text x="250" y="130" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">Sorted by type,</text>
+            <text x="250" y="144" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">matched to right team</text>
+            <text x="490" y="114" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1" opacity=".55">Routing</text>
+            <text x="490" y="130" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546" opacity=".55">AI classifies and routes</text>
+            <text x="490" y="144" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546" opacity=".55">automatically</text>
+
+            <line x1="10" y1="158" x2="225" y2="158" stroke="#E5E0E1" stroke-width=".25" opacity=".4"/>
+            <line x1="250" y1="158" x2="465" y2="158" stroke="#E5E0E1" stroke-width=".25" opacity=".4"/>
+            <line x1="490" y1="158" x2="690" y2="158" stroke="#E5E0E1" stroke-width=".25" opacity=".3"/>
+
+            <!-- Row 3: Response -->
+            <text x="10" y="182" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Response</text>
+            <text x="10" y="198" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546">5 business days</text>
+            <text x="250" y="182" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">Response</text>
+            <text x="250" y="198" font-family="'DM Sans', sans-serif" font-size="10" font-weight="700" fill="#4A4546">24-48 hours, 42% fewer</text>
+            <text x="490" y="182" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1" opacity=".55">Response</text>
+            <text x="490" y="198" font-family="'DM Sans', sans-serif" font-size="10" font-weight="600" fill="#4A4546" opacity=".55">AI-generated, on-brand</text>
+
+            <line x1="10" y1="224" x2="225" y2="224" stroke="#E5E0E1" stroke-width=".5"/>
+            <line x1="250" y1="224" x2="465" y2="224" stroke="#E5E0E1" stroke-width=".5"/>
+            <line x1="490" y1="224" x2="690" y2="224" stroke="#E5E0E1" stroke-width=".5" opacity=".55"/>
+          </svg>
+        </div>
+
+        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">42% workload reduction. 24 to 48 hour response standard across all operating markets. Internally documented.</div>
+
+        <!-- Collapsible: Proposed GenAI direction -->
+        <details style="margin-top:.6rem;">
+          <summary style="font-size:.68rem;font-weight:600;color:var(--purple);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.35rem;opacity:.7;letter-spacing:.02em;">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Proposed: generative AI direction
+          </summary>
+          <div style="border-left:3px solid var(--purple);padding:.45rem .8rem;margin-top:.4rem;background:rgba(155,45,143,0.04);opacity:.65;">
+            <p style="font-size:.72rem;color:var(--ink);line-height:1.6;margin-bottom:.5rem;">A subsequent proposal identified that with further classification, the reference documentation could serve as the foundation for a generative AI system. The system would draw from four sources already in place:</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.2rem;font-size:.68rem;">
+              <div>
+                <div style="font-weight:600;color:var(--ink);">Brand FAQs</div>
+                <div style="color:var(--gray-mid);line-height:1.5;">"Can I use the logo on merchandise?"<br/>"How do I request photos or video?"</div>
+              </div>
+              <div>
+                <div style="font-weight:600;color:var(--ink);">Brand guidelines</div>
+                <div style="color:var(--gray-mid);line-height:1.5;">Logo usage, visual identity, typography</div>
+              </div>
+              <div>
+                <div style="font-weight:600;color:var(--ink);">Asset library</div>
+                <div style="color:var(--gray-mid);line-height:1.5;">Logos, photography, templates</div>
+              </div>
+              <div>
+                <div style="font-weight:600;color:var(--ink);">Documented request patterns</div>
+                <div style="color:var(--gray-mid);line-height:1.5;">What people asked for, how often, and where it went</div>
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
-    </details>
+    </div>
 
     <details class="infra-expand" aria-label="Content infrastructure details">
       <summary>
@@ -685,105 +884,8 @@
         <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;white-space:nowrap;flex-shrink:0;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--warm-rose);color:white;">20K+ assets</span>
       </summary>
       <div class="infra-expand-body">
-        <p style="font-size:.76rem;color:var(--gray-dark);line-height:1.7;margin-bottom:.5rem;">Scaled the company's content asset library to full operational capacity: custom-produced and curated imagery and video, accessible on a self-service basis across all 41 global markets. Established the structure, access standards, and governance protocols that made the library a functional creative resource across the company.</p>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;">Scaled to 20,000+ assets. Self-service access across 41 global markets</div>
-      </div>
-    </details>
-  </div>
-
-
-  <!-- ============================================ -->
-
-  <!-- ============================================ -->
-  <!-- SECTION: Global Brand Governance -->
-  <!-- ============================================ -->
-  <div class="section reveal" id="governance">
-    <div class="section-header">
-      <div class="section-dot" style="background:var(--gray-mid);" aria-hidden="true"></div>
-      <div class="section-eyebrow" style="color:var(--gray-mid);">Brand Standards</div>
-    </div>
-    <div class="section-title">Global Brand Governance</div>
-    <div class="section-intro">Governed corporate brand standards across digital, executive communications, investor relations, scientific congresses, and the annual report in 41 global markets. The function's reach extended across the corporate brand, leadership communications, global patient initiatives, and research and development days. A longitudinal reputation study across six global markets and seven audience segments measured governance effectiveness, benchmarking the company against seven to nine industry peers per market on familiarity, favorability, trust, and advocacy.</div>
-
-    <!-- Brand Governance Ecosystem SVG -->
-    <div style="margin:1.5rem 0 2rem;margin-left:2.1rem;" aria-label="Brand governance ecosystem diagram">
-      <svg viewBox="0 0 700 340" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
-        <!-- Center -->
-        <circle cx="350" cy="160" r="52" fill="#F0E4EE" stroke="#9B2D8F" stroke-width="1.5"/>
-        <text x="350" y="153" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#9B2D8F">CORPORATE BRAND</text>
-        <text x="350" y="166" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="8" fill="#9B2D8F">STANDARDS</text>
-        <text x="350" y="178" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">41 markets</text>
-
-        <!-- Spokes -->
-        <line x1="310" y1="118" x2="200" y2="55" stroke="#E5E0E1" stroke-width="1"/>
-        <line x1="390" y1="118" x2="500" y2="55" stroke="#E5E0E1" stroke-width="1"/>
-        <line x1="298" y1="160" x2="120" y2="160" stroke="#E5E0E1" stroke-width="1"/>
-        <line x1="402" y1="160" x2="580" y2="160" stroke="#E5E0E1" stroke-width="1"/>
-        <line x1="310" y1="202" x2="200" y2="265" stroke="#E5E0E1" stroke-width="1"/>
-        <line x1="390" y1="202" x2="500" y2="265" stroke="#E5E0E1" stroke-width="1"/>
-
-        <!-- Node 1: Visual Identity (top-left) -->
-        <circle cx="185" cy="45" r="6" fill="#706B6C"/>
-        <text x="185" y="33" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Visual Identity</text>
-        <text x="185" y="19" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">logo, typography, color, photography</text>
-
-        <!-- Node 2: Digital Ecosystem (top-right) -->
-        <circle cx="515" cy="45" r="6" fill="#706B6C"/>
-        <text x="515" y="33" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Digital Ecosystem</text>
-        <text x="515" y="19" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">social, web, email, intranet</text>
-
-        <!-- Node 3: Agency Ecosystem (mid-left) -->
-        <circle cx="105" cy="160" r="6" fill="#706B6C"/>
-        <text x="105" y="148" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Agency Ecosystem</text>
-        <text x="105" y="134" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">training, onboarding, production</text>
-
-        <!-- Node 4: Promotional Materials (mid-right) -->
-        <circle cx="595" cy="160" r="6" fill="#706B6C"/>
-        <text x="595" y="148" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Promotional Materials</text>
-        <text x="595" y="134" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">product branded, unbranded, regulatory</text>
-
-        <!-- Node 5: International Compliance (bottom-left) -->
-        <circle cx="185" cy="275" r="6" fill="#706B6C"/>
-        <text x="185" y="292" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">International Compliance</text>
-        <text x="185" y="306" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">market-specific legal entities</text>
-
-        <!-- Node 6: Congress &amp; Exhibit (bottom-right) -->
-        <circle cx="515" cy="275" r="6" fill="#706B6C"/>
-        <text x="515" y="292" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="600" fill="#4A4546">Congress &amp; Exhibit Identity</text>
-        <text x="515" y="306" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1">scientific conferences, events</text>
-
-        <!-- Footer label -->
-        <text x="350" y="332" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#B5B0B1" letter-spacing=".08em">GOVERNED PROPERTIES SPANNING 41 MARKETS ACROSS 60+ COUNTRIES</text>
-      </svg>
-    </div>
-
-    <div class="card-list" aria-label="Brand governance deliverables">
-      <div class="card-item">
-        <div class="card-cat" style="color:var(--gray-mid);">Agency Management</div>
-        <div class="card-title">Agency of Record: Corporate Brand</div>
-        <div class="card-body">Directed the agency of record relationship for the corporate brand, covering strategy, briefing, creative production, and delivery standards across 41 global markets.</div>
-      </div>
-      <div class="card-item">
-        <div class="card-cat" style="color:var(--gray-mid);">Strategic Initiative</div>
-        <div class="card-title">Global Brand Council: Business Case</div>
-        <div class="card-body">Built the business case for a Global Brand Council to coordinate brand standards across Corporate Communications, Investor Relations, Human Resources, Environmental Social and Governance (ESG), and R&amp;D Communications.</div>
-        <div class="card-result" style="border-color:var(--gray-mid);background:#f0eeef;color:var(--gray-mid);">Governance framework and implementation roadmap delivered</div>
-      </div>
-    </div>
-
-    <!-- Corporate Rebrand Transition (collapsible) -->
-    <details class="infra-expand" style="margin-top:1rem;" aria-label="Corporate visual identity transition">
-      <summary>
-        <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="infra-expand-head">
-          <div class="infra-expand-title">Corporate Visual Identity Transition</div>
-          <div class="infra-expand-attr">Enterprise rollout, inherited in progress</div>
-        </div>
-        <span class="infra-expand-hint">view details</span>
-      </summary>
-      <div class="infra-expand-body">
-        <p style="font-size:.76rem;color:var(--gray-dark);line-height:1.7;">Advanced the enterprise-wide rollout of a new corporate visual identity across 41 markets, governing standards for digital properties, promotional materials, congress identity, and international legal entity compliance. Coordinated agency onboarding, regulatory review alignment for product-branded materials, and centralized asset management supporting self-service access across all operating markets.</p>
-        <div class="card-result" style="border-color:var(--gray-mid);background:#f0eeef;color:var(--gray-mid);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;margin-top:.5rem;">41 markets across 60+ countries</div>
+        <p style="font-size:.76rem;color:var(--gray-dark);line-height:1.7;margin-bottom:.5rem;">Scaled the company's content asset library to full operational capacity: custom-produced and curated imagery and video, accessible on a self-service basis across all operating markets. Established the structure, access standards, and governance protocols that made the library a functional creative resource across the company.</p>
+        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;">Scaled to 20,000+ assets. Self-service access across all operating markets</div>
       </div>
     </details>
   </div>
@@ -802,7 +904,7 @@
 
     <!-- Context -->
     <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Context</div>
-    <div class="section-intro">Unbranded campaigns were produced across commercial, medical affairs, and corporate functions, each sourcing its own creative direction. The agency of record had mapped the landscape as a spectrum, ranging from masterbrand materials at one end to fully unbranded campaigns at the other, with graduated ratios of branded-to-unbranded visual identity at each stage:</div>
+    <div class="section-intro">Unbranded campaigns were produced across commercial, medical affairs, and corporate functions, each sourcing its own creative direction. The category operated without a unified governance standard at the enterprise level. The agency of record had mapped the landscape as a spectrum, ranging from masterbrand materials at one end to fully unbranded campaigns at the other, with graduated ratios of branded-to-unbranded visual identity at each stage:</div>
 
     <!-- SPECTRUM -->
     <div style="margin-left:2.1rem;font-size:.58rem;color:var(--gray-light);font-style:italic;margin-bottom:.5rem;">Masterbrand/unbranded campaign spectrum, developed by agency of record</div>
@@ -872,6 +974,7 @@
     <!-- Findings -->
     <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Findings</div>
     <div class="section-intro">A category-wide analysis mapped visual identity across markets and therapeutic areas, measuring how unbranded campaign palettes related to branded product palettes within the same disease categories. In several therapeutic areas, unbranded campaigns drew from the same primary and secondary color families as branded product materials, placing them in close visual proximity. In a regulated industry, color distance between branded and unbranded materials is a compliance consideration. The proposed direction: assign each therapeutic area a dedicated color family from the tertiary palette so that unbranded campaigns are visually distinct from branded materials by design, not by discretion.</div>
+    <div style="margin-left:2.1rem;margin-bottom:.75rem;"><span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">Executed</span></div>
 
     <!-- COLOR ADOPTION AUDIT -->
     <div class="color-audit" aria-label="Color adoption audit examples">
@@ -903,6 +1006,7 @@
     <!-- Worldwide Standard -->
     <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Worldwide Standard</div>
     <div class="section-intro">Building on the agency's masterbrand/unbranded spectrum, this program introduced a flexibility framework governing how brand standards apply at each point along the continuum. Campaigns closer to the masterbrand follow stricter corporate standards; those further along the unbranded end have greater latitude for regional and therapeutic-area adaptation.</div>
+    <div style="margin-left:2.1rem;margin-bottom:.75rem;"><span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">Executed</span></div>
 
     <!-- FLEXIBILITY SPECTRUM -->
     <div class="flex-spectrum">
@@ -930,7 +1034,7 @@
         <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="infra-expand-head">
           <div class="infra-expand-title">Decision Tool</div>
-          <div class="infra-expand-attr">Developed by agency of record</div>
+          <div class="infra-expand-attr">Executed &middot; Developed by agency of record</div>
         </div>
         <span class="infra-expand-hint">view wireframe</span>
       </summary>
@@ -952,7 +1056,7 @@
         <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="infra-expand-head">
           <div class="infra-expand-title">Template Generator</div>
-          <div class="infra-expand-attr">Originated and built in-house</div>
+          <div class="infra-expand-attr">Executed &middot; Originated and built in-house</div>
         </div>
         <span class="infra-expand-hint">view wireframe</span>
       </summary>
@@ -986,7 +1090,7 @@
         <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="infra-expand-head">
           <div class="infra-expand-title">Future State Vision</div>
-          <div class="infra-expand-attr">Advanced into generative AI + design system concept</div>
+          <div class="infra-expand-attr">Proposed &middot; Advanced into generative AI + design system concept</div>
         </div>
         <span class="infra-expand-hint">view wireframe</span>
       </summary>
@@ -1002,7 +1106,7 @@
     </details>
 
     <!-- Proposed Rollout -->
-    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Proposed Rollout</div>
+    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Proposed Rollout <span class="expand-badge badge-scoped" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Scoped</span></div>
     <div class="section-intro">The proposed rollout followed a phased model: pilot with two therapeutic areas in the highest-volume markets, validate the governance standard against regulatory review outcomes, then scale globally. Each phase included feedback loops from commercial, medical affairs, and regulatory teams to refine the color assignments, template parameters, and flexibility thresholds before enterprise-wide deployment.</div>
   </div>
 
