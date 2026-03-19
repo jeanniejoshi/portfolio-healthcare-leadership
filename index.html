@@ -258,7 +258,8 @@
       overflow-x: auto; -webkit-overflow-scrolling: touch;
     }
     .matrix-wrap svg { min-width: 600px; max-width: none; }
-    .color-audit > div:last-child { min-width: 480px; }
+    .color-audit-grid { grid-template-columns: 1fr !important; }
+    .color-audit-grid > div:first-child { border-right: none; border-bottom: 1px solid var(--gray-rule); }
     .spectrum-bar { min-width: 0; }
     .flex-spectrum { flex-wrap: nowrap; }
 
@@ -1037,7 +1038,7 @@
     <!-- COLOR ADOPTION AUDIT -->
     <div class="color-audit" aria-label="Color adoption audit examples">
       <div style="padding:.35rem .6rem;background:var(--purple-light);font-size:.56rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);border-bottom:1px solid var(--gray-rule);">Color Adoption: Audit Examples</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div class="color-audit-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
         <div style="padding:.55rem;border-right:1px solid var(--gray-rule);">
           <div style="font-size:.56rem;font-weight:600;color:#c0392b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem;">&times; Insufficient Separation</div>
           <div style="display:flex;gap:.3rem;margin-bottom:.35rem;align-items:center;">
