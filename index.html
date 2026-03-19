@@ -732,106 +732,97 @@
     </div>
     <div class="section-title">Operational Excellence</div>
 
-    <!-- Generative AI Capability Building (accent bar) -->
-    <details id="genai" style="background:linear-gradient(135deg, rgba(212,131,122,0.06) 0%, rgba(212,131,122,0.13) 100%);border:1px solid var(--warm-rose);padding:1.5rem 1.25rem 1.25rem;margin-top:1.5rem;margin-left:2.1rem;">
-      <summary style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--warm-rose);cursor:pointer;list-style:none;">
-        <div style="font-family:var(--sans);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--warm-rose);opacity:.7;margin-bottom:.2rem;">Special project</div>
-        <div style="display:flex;align-items:center;gap:.5rem;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;transition:transform .2s;"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Generative AI capability building
-          <span style="font-family:var(--sans);font-weight:400;color:var(--gray-light);font-size:.62rem;margin-left:.25rem;">view details</span>
+    <!-- Generative AI Capability Building (version D: gold border, no fill) -->
+    <div id="genai" style="position:relative;border:1px solid var(--warm-gold);padding:1.5rem 1.25rem 1rem;margin-top:2rem;margin-left:2.1rem;">
+      <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);background:#FAFAFA;padding:0 .5rem;">
+        <span style="background:var(--warm-gold-light);border:1px solid var(--warm-gold);color:var(--warm-gold);font-family:var(--sans);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.2rem .6rem;border-radius:10px;">Special project</span>
+      </div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--warm-gold);margin-top:.25rem;margin-bottom:.4rem;">Generative AI capability building</div>
+      <div style="font-size:.82rem;color:var(--gray-dark);line-height:1.85;margin-bottom:1rem;">Co-led two generative AI programs within Corporate Affairs: a structured AI literacy curriculum and a separate experimental AI track, developed in partnership with IT and Policy, delivered ahead of broad sector adoption.</div>
+
+      <!-- Timeline SVG (always visible) -->
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:.25rem;" aria-label="Generative AI program timeline">
+        <svg viewBox="0 0 760 310" style="max-width:720px;width:100%;height:auto;display:block;min-width:600px;" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80" y1="40" x2="700" y2="40" stroke="#E5E0E1" stroke-width=".5"/>
+        <text x="80" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q1</text>
+        <text x="280" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q2</text>
+        <text x="480" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q3</text>
+        <text x="660" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q4</text>
+
+        <text x="20" y="72" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Intro Session</text>
+        <text x="20" y="85" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">All Corporate Affairs</text>
+        <line x1="100" y1="72" x2="180" y2="72" stroke="#C9A84C" stroke-width="2.5"/>
+        <circle cx="140" cy="72" r="3.5" fill="#C9A84C"/>
+
+        <text x="20" y="120" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="700" fill="#C9A84C">Deep Dives</text>
+        <text x="20" y="133" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">8 business units</text>
+        <line x1="240" y1="120" x2="560" y2="120" stroke="#C9A84C" stroke-width="2.5"/>
+        <circle cx="260" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="300" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="340" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="380" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="420" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="460" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="500" cy="120" r="3.5" fill="#C9A84C"/>
+        <circle cx="540" cy="120" r="3.5" fill="#C9A84C"/>
+
+        <text x="260" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 260 145)">Corp Comms</text>
+        <text x="300" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 300 145)">Patient Outreach</text>
+        <text x="340" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 340 145)">Policy &amp; Gov Affairs</text>
+        <text x="380" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 380 145)">Purpose / ESG</text>
+        <text x="420" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 420 145)">R&amp;D Comms</text>
+        <text x="460" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 460 145)">Strategy &amp; Issues</text>
+        <text x="500" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 500 145)">GPS Comms</text>
+        <text x="540" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 540 145)">Market Comms</text>
+
+        <text x="20" y="218" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Prompting Workshops</text>
+        <text x="20" y="231" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">Ad hoc, ongoing</text>
+        <line x1="440" y1="218" x2="700" y2="218" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+        <text x="20" y="264" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Experimental AI</text>
+        <text x="20" y="277" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">Use-case prioritization, custom GPT</text>
+        <line x1="240" y1="264" x2="700" y2="264" stroke="#E5E0E1" stroke-width="1.5"/>
+
+        <line x1="80" y1="302" x2="108" y2="302" stroke="#C9A84C" stroke-width="2.5"/>
+        <text x="114" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">facilitated</text>
+        <line x1="200" y1="302" x2="228" y2="302" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="234" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">ongoing</text>
+        <line x1="310" y1="302" x2="338" y2="302" stroke="#E5E0E1" stroke-width="1.5"/>
+        <text x="344" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">parallel track</text>
+      </svg>
+      </div>
+      <div style="font-size:.58rem;color:var(--gray-light);text-align:right;margin-bottom:.75rem;" class="scroll-hint-genai">Scroll to view full chart →</div>
+
+      <!-- Cards (collapsible) -->
+      <details style="border-top:1px solid rgba(201,168,76,0.3);padding-top:.5rem;">
+        <summary style="font-size:.72rem;font-weight:600;color:var(--warm-gold);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.35rem;">
+          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;transition:transform .2s;"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View program details
+        </summary>
+        <div style="padding-top:.5rem;">
+          <div class="card-list" style="margin-left:0;" aria-label="Generative AI deliverables">
+            <div class="card-item">
+              <div class="card-cat" style="color:var(--warm-gold);">AI Literacy</div>
+              <div class="card-title">Generative AI Literacy Curriculum: Corporate Affairs <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
+              <div class="card-body">Co-designed and led a modular AI literacy curriculum for Corporate Affairs, developed in partnership with IT and Policy. The program was structured in three phases: a department-wide introduction to generative AI; eight business unit-specific deep-dive sessions tailored to each team's use cases; and ad hoc prompting workshops for ongoing capability building. An AI literacy toolkit developed for Corporate Affairs was deployed by IT partners at a corporate retreat with record attendance of 200 colleagues, accelerating adoption across brand, communications, and policy teams.</div>
+              <div class="card-result" style="border-color:var(--warm-gold);background:var(--warm-gold-light);color:var(--warm-gold);">All of Corporate Affairs. Eight business unit sessions. 200-person retreat deployment. Curriculum built from scratch</div>
+            </div>
+            <div class="card-item">
+              <div class="card-cat" style="color:var(--warm-gold);">Experimental AI</div>
+              <div class="card-title">Experimental AI: Use Case Development and Capability Building <span class="expand-badge badge-proposed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Proposed</span></div>
+              <div class="card-body">Built a use-case framework and proposed a custom Corporate Affairs GPT delivered to brand guidelines, tone of voice, and regulatory parameters.</div>
+              <div class="card-result" style="border-color:var(--warm-gold);background:var(--warm-gold-light);color:var(--warm-gold);">Custom Corporate Affairs GPT proposed</div>
+            </div>
+            <div class="card-item">
+              <div class="card-cat" style="color:var(--warm-gold);">Creative Application</div>
+              <div class="card-title">Generative AI for Campaign Prototyping <span class="expand-badge badge-adopted" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Adopted</span></div>
+              <div class="card-body">Applied generative AI tools to prototype a campaign concept, the first application of AI-assisted creative within the function. Produced visual concepts, copy variations, and layout options that demonstrated the efficiency and creative range possible with AI-augmented workflows, presented to function leadership as a proof of concept for broader adoption.</div>
+              <div class="card-result" style="border-color:var(--warm-gold);background:var(--warm-gold-light);color:var(--warm-gold);">First application of generative AI to campaign prototyping within the function</div>
+            </div>
+          </div>
         </div>
-      </summary>
-      <div style="margin-top:1rem;">
-
-    <div class="section-intro" style="margin-left:0;">Led two parallel generative AI programs within Corporate Affairs: a structured AI literacy curriculum and a separate experimental AI track, co-developed with the IT function and delivered ahead of broad sector adoption.</div>
-
-    <!-- Tufte Program Architecture SVG -->
-    <div style="margin:1.5rem 0 .25rem;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Generative AI program timeline">
-      <svg viewBox="0 0 760 310" style="max-width:720px;width:100%;height:auto;display:block;min-width:600px;" xmlns="http://www.w3.org/2000/svg">
-      <!-- Timeline axis -->
-      <line x1="80" y1="40" x2="700" y2="40" stroke="#E5E0E1" stroke-width=".5"/>
-      <text x="80" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q1</text>
-      <text x="280" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q2</text>
-      <text x="480" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q3</text>
-      <text x="660" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q4</text>
-
-      <!-- Track 1: Intro Gen AI -->
-      <text x="20" y="72" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Intro Session</text>
-      <text x="20" y="85" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">All Corporate Affairs</text>
-      <line x1="100" y1="72" x2="180" y2="72" stroke="#D4837A" stroke-width="2.5"/>
-      <circle cx="140" cy="72" r="3.5" fill="#D4837A"/>
-
-      <!-- Track 2: BU Deep Dives -->
-      <text x="20" y="120" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="700" fill="#D4837A">Deep Dives</text>
-      <text x="20" y="133" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">8 business units</text>
-      <line x1="240" y1="120" x2="560" y2="120" stroke="#D4837A" stroke-width="2.5"/>
-
-      <!-- 8 BU dots -->
-      <circle cx="260" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="300" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="340" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="380" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="420" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="460" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="500" cy="120" r="3.5" fill="#D4837A"/>
-      <circle cx="540" cy="120" r="3.5" fill="#D4837A"/>
-
-      <!-- BU names -->
-      <text x="260" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 260 145)">Corp Comms</text>
-      <text x="300" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 300 145)">Patient Outreach</text>
-      <text x="340" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 340 145)">Policy &amp; Gov Affairs</text>
-      <text x="380" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 380 145)">Purpose / ESG</text>
-      <text x="420" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 420 145)">R&amp;D Comms</text>
-      <text x="460" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 460 145)">Strategy &amp; Issues</text>
-      <text x="500" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 500 145)">GPS Comms</text>
-      <text x="540" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 540 145)">Market Comms</text>
-
-      <!-- Track 3: Ad Hoc Workshops -->
-      <text x="20" y="218" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Prompting Workshops</text>
-      <text x="20" y="231" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">Ad hoc, ongoing</text>
-      <line x1="440" y1="218" x2="700" y2="218" stroke="#D4837A" stroke-width="1.5" stroke-dasharray="4 3"/>
-
-      <!-- Track 4: Experimental AI -->
-      <text x="20" y="264" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Experimental AI</text>
-      <text x="20" y="277" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">Use-case prioritization, custom GPT</text>
-      <line x1="240" y1="264" x2="700" y2="264" stroke="#E5E0E1" stroke-width="1.5"/>
-
-      <!-- Legend -->
-      <line x1="80" y1="302" x2="108" y2="302" stroke="#D4837A" stroke-width="2.5"/>
-      <text x="114" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">facilitated</text>
-      <line x1="200" y1="302" x2="228" y2="302" stroke="#D4837A" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <text x="234" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">ongoing</text>
-      <line x1="310" y1="302" x2="338" y2="302" stroke="#E5E0E1" stroke-width="1.5"/>
-      <text x="344" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">parallel track</text>
-    
-    </svg>
+      </details>
     </div>
-    <div style="font-size:.58rem;color:var(--gray-light);text-align:right;margin-bottom:1rem;" class="scroll-hint-genai">Scroll to view full chart →</div>
-
-    <div class="card-list" aria-label="Generative AI deliverables">
-      <div class="card-item">
-        <div class="card-cat" style="color:var(--warm-rose);">Organizational Capability: Track 1</div>
-        <div class="card-title">Generative AI Literacy Curriculum: Corporate Affairs <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
-        <div class="card-body">Co-designed and led a modular AI literacy curriculum for Corporate Affairs, developed in partnership with IT. The program was structured in three phases: a department-wide introduction to generative AI; eight business unit-specific deep-dive sessions tailored to each team's use cases; and ad hoc prompting workshops for ongoing capability building. An AI literacy toolkit developed for Corporate Affairs was deployed by IT partners at a corporate retreat with record attendance of 200 colleagues, accelerating adoption across brand, communications, and policy teams.</div>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">All of Corporate Affairs. Eight business unit sessions. 200-person retreat deployment. Curriculum built from scratch</div>
-      </div>
-      <div class="card-item">
-        <div class="card-cat" style="color:var(--warm-rose);">Organizational Capability: Track 2</div>
-        <div class="card-title">Experimental AI: Use Case Development and Capability Building <span class="expand-badge badge-proposed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Proposed</span></div>
-        <div class="card-body">Built a use-case framework and proposed a custom Corporate Affairs GPT delivered to brand guidelines, tone of voice, and regulatory parameters.</div>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">Custom Corporate Affairs GPT proposed</div>
-      </div>
-      <div class="card-item">
-        <div class="card-cat" style="color:var(--warm-rose);">Creative Application</div>
-        <div class="card-title">Generative AI for Campaign Prototyping <span class="expand-badge badge-adopted" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Adopted</span></div>
-        <div class="card-body">Applied generative AI tools to prototype a campaign concept, the first application of AI-assisted creative within the function. Produced visual concepts, copy variations, and layout options that demonstrated the efficiency and creative range possible with AI-augmented workflows, presented to function leadership as a proof of concept for broader adoption.</div>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">First application of generative AI to campaign prototyping within the function</div>
-      </div>
-    </div>
-
-      </div>
-    </details>
 
 
         <!-- Brand Process Redesign -->
