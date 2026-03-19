@@ -40,7 +40,9 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html { overflow-x: hidden; }
 
   .page { max-width: 820px; margin: 0 auto; padding: 4rem 2.5rem 6rem; }
 
@@ -93,7 +95,7 @@
   .expand-badge { font-family: var(--sans); font-size: .52rem; padding: .12rem .4rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
   .badge-executed { background: var(--teal); color: white; }
   .badge-delivered { background: var(--gray-mid); color: white; }
-  .badge-pipeline { background: var(--warm-gold-light); color: var(--warm-gold); }
+  .badge-pipeline { background: var(--purple-light); color: var(--purple); }
   .badge-scoped { background: var(--warm-rose-light); color: var(--warm-rose); }
   .badge-proposed { background: var(--teal-light); color: var(--teal); }
   .badge-adopted { background: var(--purple-light); color: var(--purple); }
@@ -223,23 +225,49 @@
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* GenAI collapsible */
+  .genai-collapse-summary::-webkit-details-marker { display: none; }
+  .scroll-hint-genai { font-size: .58rem; color: var(--gray-light); text-align: right; margin-bottom: 1rem; }
+
   /* RESPONSIVE */
   @media (max-width: 700px) {
     .page { padding: 4rem 1.5rem 4rem; }
+    * { box-sizing: border-box; }
     .hero-name { font-size: 1.8rem; }
     .metrics { grid-template-columns: repeat(2, 1fr); }
     nav { padding: .85rem 1.5rem; }
     .nav-links { display: none; }
     .dtable .drow { grid-template-columns: 1fr; }
     .tg-body { grid-template-columns: 1fr; }
-    .matrix-wrap, .color-audit { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .matrix-wrap svg { min-width: 600px; }
-    .color-audit > div { min-width: 480px; }
-    .spectrum-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Reset all left margins */
+    .section-title, .section-intro, .matrix-wrap, .tier-bars,
+    .expand-list, .spectrum-bar, .spectrum-axis, .flex-spectrum,
+    .palette-tier, .color-audit, .dtable, .infra-expand,
+    .card-list, #genai { margin-left: 0 !important; }
+    .page [style*="margin-left:2.1rem"] { margin-left: 0 !important; }
+    .page [style*="margin-left: 2.1rem"] { margin-left: 0 !important; }
+
+    /* Prevent any child from exceeding container */
+    .section, .card-item, .card-list, .infra-expand,
+    .infra-expand-body, #genai { max-width: 100%; overflow-x: auto; }
+    svg { max-width: 100%; }
+
+    /* Scrollable wide elements */
+    .matrix-wrap, .color-audit, .spectrum-bar, .flex-spectrum {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .matrix-wrap svg { min-width: 600px; max-width: none; }
+    .color-audit > div:last-child { min-width: 480px; }
     .spectrum-bar { min-width: 0; }
+    .flex-spectrum { flex-wrap: nowrap; }
+
     .spectrum-segment-label { font-size: .52rem; }
     .spectrum-segment-ratio { font-size: .44rem; }
-    .flex-spectrum { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
+    .scroll-hint-genai { display: block; }
+  }
+  @media (min-width: 701px) {
+    .scroll-hint-genai { display: none; }
   }
 </style>
 </head>
@@ -253,6 +281,7 @@
     <li><a href="#awards">Recognition</a></li>
     <li><a href="#governance">Brand Governance</a></li>
     <li><a href="#operations">Operational Excellence</a></li>
+    <li><a href="#genai">GenAI</a></li>
     <li><a href="#unbranded">Unbranded Campaigns</a></li>
     <li><a href="#campaign">Omnichannel Campaign</a></li>
     <li><a href="#congresses">Congresses</a></li>
@@ -320,8 +349,8 @@
     </div>
 
     <!-- ORG CHART SVG -->
-    <div style="margin:2rem 0;" aria-label="Matrixed organization chart">
-      <svg viewBox="0 0 740 260" style="max-width:700px;width:100%;height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+    <div style="margin:2rem 0;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Matrixed organization chart">
+      <svg viewBox="0 0 740 260" style="width:100%;height:auto;display:block;margin:0 auto;min-width:500px;" xmlns="http://www.w3.org/2000/svg">
 
         <!-- DIRECTOR (anchor) -->
         <text x="110" y="72" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="13.5" font-weight="700" fill="#9B2D8F">Director of</text>
@@ -370,16 +399,16 @@
 
   <!-- ============================================ -->
   <!-- CHAPTER: Inspire -->
-  <div style="text-align:center;margin:3rem 0 2rem;">
-    <div style="display:inline-block;border-top:1px solid var(--gray-rule);padding-top:.6rem;">
-      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--ink);letter-spacing:.08em;">Inspire</div>
+  <div style="text-align:center;margin:3rem 0 1.5rem;">
+    <div style="display:inline-block;border-top:1px solid var(--warm-gold);padding-top:.6rem;opacity:.85;">
+      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--warm-gold);letter-spacing:.08em;">Inspire</div>
     </div>
   </div>
 
   <!-- ============================================ -->
   <!-- SECTION: Reputation Platforms -->
   <!-- ============================================ -->
-  <div class="section reveal" id="platforms">
+  <div class="section reveal" id="platforms" style="margin-top:2rem;padding-top:0;border-top:none;">
     <div class="section-header">
       <div class="section-dot" style="background:var(--teal);" aria-hidden="true"></div>
       <div class="section-eyebrow" style="color:var(--teal);">Corporate Reputation</div>
@@ -405,7 +434,7 @@
 
     <!-- Tufte matrix -->
     <div class="matrix-wrap" aria-label="Platform mapping matrix">
-      <svg viewBox="0 0 700 240" style="max-width:100%;width:100%;height:auto;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 700 240" style="width:100%;height:auto;overflow:visible;min-width:500px;" xmlns="http://www.w3.org/2000/svg">
         <line x1="80" y1="30" x2="80" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
         <line x1="320" y1="30" x2="320" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
         <line x1="560" y1="30" x2="560" y2="200" stroke="#E5E0E1" stroke-width=".5"/>
@@ -592,16 +621,16 @@
 
   <!-- ============================================ -->
   <!-- CHAPTER: Innovate -->
-  <div style="text-align:center;margin:3rem 0 2rem;">
-    <div style="display:inline-block;border-top:1px solid var(--gray-rule);padding-top:.6rem;">
-      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--ink);letter-spacing:.08em;">Innovate</div>
+  <div style="text-align:center;margin:3rem 0 1.5rem;">
+    <div style="display:inline-block;border-top:1px solid var(--warm-gold);padding-top:.6rem;opacity:.85;">
+      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--warm-gold);letter-spacing:.08em;">Innovate</div>
     </div>
   </div>
 
   <!-- ============================================ -->
   <!-- SECTION: Global Brand Governance -->
   <!-- ============================================ -->
-  <div class="section reveal" id="governance">
+  <div class="section reveal" id="governance" style="margin-top:2rem;padding-top:0;border-top:none;">
     <div class="section-header">
       <div class="section-dot" style="background:var(--gray-mid);" aria-hidden="true"></div>
       <div class="section-eyebrow" style="color:var(--gray-mid);">Brand Standards</div>
@@ -610,8 +639,8 @@
     <div class="section-intro">Governed corporate brand standards across digital, executive communications, investor relations, scientific congresses, and the annual report in 41 global markets. The function's reach extended across the corporate brand, leadership communications, global patient initiatives, and research and development days. A longitudinal reputation study across six global markets and seven audience segments measured governance effectiveness, benchmarking the company against seven to nine industry peers per market on familiarity, favorability, trust, and advocacy.</div>
 
     <!-- Brand Governance Ecosystem SVG -->
-    <div style="margin:1.5rem 0 2rem;margin-left:2.1rem;" aria-label="Brand governance ecosystem diagram">
-      <svg viewBox="0 0 700 340" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+    <div style="margin:1.5rem 0 2rem;margin-left:2.1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Brand governance ecosystem diagram">
+      <svg viewBox="0 0 700 340" style="width:100%;height:auto;min-width:500px;" xmlns="http://www.w3.org/2000/svg">
         <!-- Center -->
         <circle cx="350" cy="160" r="52" fill="#F0E4EE" stroke="#9B2D8F" stroke-width="1.5"/>
         <text x="350" y="153" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#9B2D8F">CORPORATE BRAND</text>
@@ -703,13 +732,23 @@
     </div>
     <div class="section-title">Operational Excellence</div>
 
-    <!-- GenAI Curriculum -->
-    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:1.5rem;">Generative AI Curriculum Development</div>
-    <div class="section-intro">Led two parallel generative AI programs within Corporate Affairs: a structured AI literacy curriculum and a separate experimental AI track, co-developed with the IT function and delivered ahead of broad sector adoption.</div>
+    <!-- Generative AI Capability Building (accent bar) -->
+    <details id="genai" style="background:linear-gradient(135deg, rgba(212,131,122,0.06) 0%, rgba(212,131,122,0.13) 100%);border:1px solid var(--warm-rose);padding:1.5rem 1.25rem 1.25rem;margin-top:1.5rem;margin-left:2.1rem;">
+      <summary style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--warm-rose);cursor:pointer;list-style:none;">
+        <div style="font-family:var(--sans);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--warm-rose);opacity:.7;margin-bottom:.2rem;">Special project</div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;transition:transform .2s;"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Generative AI capability building
+          <span style="font-family:var(--sans);font-weight:400;color:var(--gray-light);font-size:.62rem;margin-left:.25rem;">view details</span>
+        </div>
+      </summary>
+      <div style="margin-top:1rem;">
+
+    <div class="section-intro" style="margin-left:0;">Led two parallel generative AI programs within Corporate Affairs: a structured AI literacy curriculum and a separate experimental AI track, co-developed with the IT function and delivered ahead of broad sector adoption.</div>
 
     <!-- Tufte Program Architecture SVG -->
-    <div style="margin:1.5rem 0 2rem;margin-left:2.1rem;" aria-label="Generative AI program timeline">
-      <svg viewBox="0 0 760 310" style="max-width:720px;width:100%;height:auto;display:block;margin:1.5rem auto 2rem;" xmlns="http://www.w3.org/2000/svg">
+    <div style="margin:1.5rem 0 .25rem;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Generative AI program timeline">
+      <svg viewBox="0 0 760 310" style="max-width:720px;width:100%;height:auto;display:block;min-width:600px;" xmlns="http://www.w3.org/2000/svg">
       <!-- Timeline axis -->
       <line x1="80" y1="40" x2="700" y2="40" stroke="#E5E0E1" stroke-width=".5"/>
       <text x="80" y="30" font-family="'DM Sans', sans-serif" font-size="9" fill="#B5B0B1">Q1</text>
@@ -720,23 +759,23 @@
       <!-- Track 1: Intro Gen AI -->
       <text x="20" y="72" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Intro Session</text>
       <text x="20" y="85" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">All Corporate Affairs</text>
-      <line x1="100" y1="72" x2="180" y2="72" stroke="#9B2D8F" stroke-width="2.5"/>
-      <circle cx="140" cy="72" r="3.5" fill="#9B2D8F"/>
+      <line x1="100" y1="72" x2="180" y2="72" stroke="#D4837A" stroke-width="2.5"/>
+      <circle cx="140" cy="72" r="3.5" fill="#D4837A"/>
 
       <!-- Track 2: BU Deep Dives -->
-      <text x="20" y="120" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="700" fill="#9B2D8F">Deep Dives</text>
+      <text x="20" y="120" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="700" fill="#D4837A">Deep Dives</text>
       <text x="20" y="133" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">8 business units</text>
-      <line x1="240" y1="120" x2="560" y2="120" stroke="#9B2D8F" stroke-width="2.5"/>
+      <line x1="240" y1="120" x2="560" y2="120" stroke="#D4837A" stroke-width="2.5"/>
 
       <!-- 8 BU dots -->
-      <circle cx="260" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="300" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="340" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="380" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="420" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="460" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="500" cy="120" r="3.5" fill="#9B2D8F"/>
-      <circle cx="540" cy="120" r="3.5" fill="#9B2D8F"/>
+      <circle cx="260" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="300" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="340" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="380" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="420" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="460" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="500" cy="120" r="3.5" fill="#D4837A"/>
+      <circle cx="540" cy="120" r="3.5" fill="#D4837A"/>
 
       <!-- BU names -->
       <text x="260" y="145" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#4A4546" transform="rotate(35 260 145)">Corp Comms</text>
@@ -751,7 +790,7 @@
       <!-- Track 3: Ad Hoc Workshops -->
       <text x="20" y="218" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Prompting Workshops</text>
       <text x="20" y="231" font-family="'DM Sans', sans-serif" font-size="8" fill="#B5B0B1">Ad hoc, ongoing</text>
-      <line x1="440" y1="218" x2="700" y2="218" stroke="#9B2D8F" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="440" y1="218" x2="700" y2="218" stroke="#D4837A" stroke-width="1.5" stroke-dasharray="4 3"/>
 
       <!-- Track 4: Experimental AI -->
       <text x="20" y="264" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="600" fill="#4A4546">Experimental AI</text>
@@ -759,14 +798,16 @@
       <line x1="240" y1="264" x2="700" y2="264" stroke="#E5E0E1" stroke-width="1.5"/>
 
       <!-- Legend -->
-      <line x1="80" y1="302" x2="108" y2="302" stroke="#9B2D8F" stroke-width="2.5"/>
+      <line x1="80" y1="302" x2="108" y2="302" stroke="#D4837A" stroke-width="2.5"/>
       <text x="114" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">facilitated</text>
-      <line x1="200" y1="302" x2="228" y2="302" stroke="#9B2D8F" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="200" y1="302" x2="228" y2="302" stroke="#D4837A" stroke-width="1.5" stroke-dasharray="4 3"/>
       <text x="234" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">ongoing</text>
       <line x1="310" y1="302" x2="338" y2="302" stroke="#E5E0E1" stroke-width="1.5"/>
       <text x="344" y="305" font-family="'DM Sans', sans-serif" font-size="7.5" fill="#B5B0B1">parallel track</text>
+    
     </svg>
     </div>
+    <div style="font-size:.58rem;color:var(--gray-light);text-align:right;margin-bottom:1rem;" class="scroll-hint-genai">Scroll to view full chart →</div>
 
     <div class="card-list" aria-label="Generative AI deliverables">
       <div class="card-item">
@@ -777,9 +818,9 @@
       </div>
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Organizational Capability: Track 2</div>
-        <div class="card-title">Experimental Generative AI: Use Case Development and Capability Building <span class="expand-badge badge-proposed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Proposed</span></div>
-        <div class="card-body">Led a parallel track focused on hands-on AI experimentation within the corporate marketing team. Built a use-case prioritization framework mapping every team workflow to AI applicability, effort, and impact, and proposed a custom Corporate Affairs GPT delivered to brand guidelines, tone of voice, and regulatory parameters.</div>
-        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">AI prioritization framework built. Custom Corporate Affairs GPT proposed and delivered</div>
+        <div class="card-title">Experimental AI: Use Case Development and Capability Building <span class="expand-badge badge-proposed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Proposed</span></div>
+        <div class="card-body">Built a use-case framework and proposed a custom Corporate Affairs GPT delivered to brand guidelines, tone of voice, and regulatory parameters.</div>
+        <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);">Custom Corporate Affairs GPT proposed</div>
       </div>
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Creative Application</div>
@@ -789,13 +830,17 @@
       </div>
     </div>
 
-    <!-- Brand Request Workflow + Content Infrastructure (collapsible) -->
-    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:2.5rem;">Brand Request Workflow &amp; Content Infrastructure</div>
+      </div>
+    </details>
+
+
+        <!-- Brand Process Redesign -->
+    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:2.5rem;">Brand Process Redesign</div>
 
     <div class="card-list" style="margin-top:.75rem;">
       <div class="card-item">
         <div class="card-cat" style="color:var(--warm-rose);">Process Redesign <span class="expand-badge badge-executed" style="font-size:.52rem;padding:.12rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;margin-left:.4rem;">Executed</span></div>
-        <div class="card-title">Automated Intake and Routing System</div>
+        <div class="card-title">Corporate Brand Process Redesign</div>
 
         <!-- Strategic context callout -->
         <div style="border-left:3px solid var(--purple);padding:.45rem .8rem;margin-bottom:.6rem;background:var(--purple-light);">
@@ -805,8 +850,8 @@
         <div class="card-body">Restructured the corporate brand request process. Audited incoming requests by type and frequency across logo usage, creative services, photo and video, unbranded campaign review, and content library access. Found that the majority were repetitive. Built reference documentation that answered common questions at the source, reducing request volume by 42%. Remaining requests routed through a structured intake process, sorted by request type and matched to the right team. Average turnaround dropped from five business days to 24 to 48 hours. The system served all functions globally, spanning commercial, scientific congress, investor relations, and corporate communications requests.</div>
 
         <!-- Before / After / Future State comparison table -->
-        <div style="margin:1.25rem 0 .75rem;" aria-label="Before, after, and future state comparison">
-          <svg viewBox="0 0 700 230" style="max-width:100%;width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg">
+        <div style="margin:1.25rem 0 .75rem;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Before, after, and future state comparison">
+          <svg viewBox="0 0 700 230" style="width:100%;height:auto;display:block;min-width:500px;" xmlns="http://www.w3.org/2000/svg">
             <!-- Column headers -->
             <text x="10" y="16" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="700" fill="#D4837A" letter-spacing=".06em">BEFORE</text>
             <text x="250" y="16" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="700" fill="#3B8C8C" letter-spacing=".06em">AFTER</text>
@@ -861,9 +906,9 @@
 
         <!-- Collapsible: Proposed GenAI direction -->
         <details style="margin-top:.75rem;">
-          <summary style="font-size:.72rem;font-weight:600;color:var(--purple);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.35rem;letter-spacing:.02em;">
+          <summary style="font-size:.72rem;font-weight:600;color:var(--purple);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.35rem;letter-spacing:.06em;">
             <svg width="10" height="10" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Proposed: generative AI direction
+            Proposed: Generative AI Direction
             <span style="font-weight:400;color:var(--gray-light);font-size:.62rem;margin-left:.3rem;">view details</span>
           </summary>
           <div style="border-left:3px solid var(--purple);padding:.45rem .8rem;margin-top:.4rem;background:rgba(155,45,143,0.06);opacity:.75;">
@@ -891,6 +936,9 @@
       </div>
     </div>
 
+    <!-- Content Workflow -->
+    <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:2rem;">Content Workflow</div>
+
     <details class="infra-expand" aria-label="Content infrastructure details">
       <summary>
         <svg class="infra-expand-chevron" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -905,12 +953,14 @@
         <div class="card-result" style="border-color:var(--warm-rose);background:var(--warm-rose-light);color:var(--warm-rose);font-size:.7rem;font-weight:600;padding:.3rem .6rem;display:inline-block;border-left:2px solid;">Scaled to 20,000+ assets. Self-service access across all operating markets</div>
       </div>
     </details>
+
+
   </div>
 
 
   <!-- SECTION: Unbranded Campaign Governance -->
   <!-- ============================================ -->
-  <div class="section reveal" id="unbranded">
+  <div class="section reveal" id="unbranded" style="margin-top:2rem;border-top:none;">
     <div class="section-header">
       <div class="section-dot" style="background:var(--gray-dark);" aria-hidden="true"></div>
       <div class="section-eyebrow" style="color:var(--gray-dark);">Unbranded Campaigns</div>
@@ -1130,16 +1180,16 @@
 
   <!-- ============================================ -->
   <!-- CHAPTER: Inform -->
-  <div style="text-align:center;margin:3rem 0 2rem;">
-    <div style="display:inline-block;border-top:1px solid var(--gray-rule);padding-top:.6rem;">
-      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--ink);letter-spacing:.08em;">Inform</div>
+  <div style="text-align:center;margin:3rem 0 1.5rem;">
+    <div style="display:inline-block;border-top:1px solid var(--warm-gold);padding-top:.6rem;opacity:.85;">
+      <div style="font-family:var(--serif);font-size:1.35rem;font-style:italic;font-weight:300;color:var(--warm-gold);letter-spacing:.08em;">Inform</div>
     </div>
   </div>
 
   <!-- ============================================ -->
   <!-- SECTION: Omnichannel Campaign -->
   <!-- ============================================ -->
-  <div class="section reveal" id="campaign">
+  <div class="section reveal" id="campaign" style="margin-top:2rem;padding-top:0;border-top:none;">
     <div class="section-header">
       <div class="section-dot" style="background:var(--purple);" aria-hidden="true"></div>
       <div class="section-eyebrow" style="color:var(--purple);">Marketing Communications</div>
@@ -1167,8 +1217,8 @@
     <div style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;margin-left:2.1rem;margin-top:2rem;">Campaign Emotional Architecture</div>
     <div style="margin-left:2.1rem;font-size:.78rem;color:var(--gray-mid);margin-bottom:.75rem;">Two emotional registers, designed to carry across all channels and formats.</div>
 
-    <div style="text-align:center;margin-bottom:.5rem;margin-left:2.1rem;" aria-label="Campaign emotional architecture diagram">
-      <svg viewBox="0 0 740 180" style="max-width:100%;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+    <div style="text-align:center;margin-bottom:.5rem;margin-left:2.1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;" aria-label="Campaign emotional architecture diagram">
+      <svg viewBox="0 0 740 180" style="width:100%;height:auto;min-width:500px;" xmlns="http://www.w3.org/2000/svg">
         <!-- Connecting arc -->
         <path d="M 120 130 Q 370 10, 620 130" fill="none" stroke="#E5E0E1" stroke-width="2.5"/>
 
