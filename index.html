@@ -117,7 +117,7 @@
 
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,250,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-rule); padding: .85rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,250,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-rule); padding: .85rem 2.5rem; display: flex; align-items: center; justify-content: center; }
   .nav-name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--ink); }
   .nav-links { display: flex; gap: 1.1rem; list-style: none; }
   .nav-links a { font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gray-light); text-decoration: none; font-weight: 600; transition: color .2s; white-space: nowrap; }
@@ -235,8 +235,8 @@
     * { box-sizing: border-box; }
     .hero-name { font-size: 1.8rem; }
     .metrics { grid-template-columns: repeat(2, 1fr); }
-    nav { padding: .85rem 1.5rem; }
-    .nav-links { display: none; }
+    nav { padding: .7rem 1rem; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.85rem; }
     .dtable .drow { grid-template-columns: 1fr; }
     .tg-body { grid-template-columns: 1fr; }
 
